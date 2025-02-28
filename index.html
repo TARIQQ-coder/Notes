@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <!-- <span> inline container to group elements for styling purposes-->
+                <!--It’s best to use a <span> element when you want to target a specific piece of content that is inline, or on the same line as other text-->
+                <!--<div> block container to group elements for styling purposes-->
+                    <!--<div>s allow us to group HTML elements to apply the same styles for all HTML elements inside. We can also style the <div> element as a whole-->
+                    <!--The fieldset element is used to group related inputs and labels together in a web form. fieldset elements are block-level elements, meaning that they appear on a new line.-->
+                    <!--The legend element acts as a caption for the content in the fieldset element. It gives users context about what they should enter into that part of the form.-->
+                    <!--You can use the id selector to target a specific element with an id attribute. An id selector is defined by placing the hash symbol # directly in front of the element's id value.-->
+                    <!--/* comment here */ comments in css looks like this-->
+                    <!--article elements commonly contain multiple elements that have related information. -->
+                    <!-- p elements are block-level elements, so they take up the entire width of their parent element.To get them on the same line, you need to apply some styling to the p elements so they behave more like inline elements -->
+                     <!--You can give your menu some space between the content and the sides with various padding properties.-->
+                      <!-- margin-top and margin-bottom refers to the invisible space outside elements. its default value is about 10px; -->
+                       <!-- This is due to the browser having some default top margin for the h1 element.Change the top margin of the h1 element to 0 to remove all the top margin.-->
+                      <!--To make the footer links the same color regardless if a link has been visited, use a type selector for the anchor element (a) and use the value black for the color property.-->
+                      <!--You change properties of a link when the link has actually been visited by using a pseudo-selector that looks like a:visited { propertyName: propertyValue; }.-->
+                      <!--You change properties of a link when the mouse hovers over them by using a pseudo-selector that looks like a:hover { propertyName: propertyValue; -->
+                      <!--You change properties of a link when the link is actually being clicked by using a pseudo-selector that looks like a:active { propertyName: propertyValue; }-->
+                      <!-- img elements are "like" inline elements.To make the image behave like heading elements (which are block-level), create an img type selector and use the value block for the display property and use the applicable margin-left and margin-right values to center it horizontally.-->
+                       <!-- After changing img which behave like inline elements into block elements, you can use the margin-left and margin-right properties to center the image horizontally.-->
+                        <!--A relative path is a filename that shows the path to a local file (a file on the same website, such as ./index.html) versus an absolute path (a full URL, like https://www.codecademy.com/learn/learn-html which is stored in a different folder). The ./ in ./index.html tells the browser to look for the file in the current folder.-->
+                        <!--When users visit our site, we want them to be able to click a link and have the page automatically scroll to a specific section.In order to link to a target on the same page, we must give the target an id attribute and a unique value.eg. <a href="#top">Click here to go to the top</a>-->
+                        <!--Just like table data, a table heading must be placed within a table row.-->
+                        <!--the use of the scope attribute, which can take one of two values:
+                         row - this value makes it clear that the heading is for a row.
+                        col - this value makes it clear that the heading is for a column.-->
+                        <!--Data can span columns using colspan attribute. The attribute accepts an integer (greater than or equal to 1) to denote the number of columns it spans across.-->
+                        <!--After users type into the <input> element, the value of the value attribute becomes what is typed into the text field. The value of the value attribute is paired with the value of the name attribute and sent as text when the form is submitted.-->
+                        <!-- if we wanted to limit what numbers our users could type we might consider using a different type value. Another option we could use is setting type to "range" which creates a slider.-->
+                         <!-- The <input> is associated to the <datalist> via the <input>‘s list attribute and the id of the <datalist>ie.they are the same-->
+                            <!--The <form>‘s method attribute determines how the information is sent and processed.-->
+                                <!--<header>is a container usually for either navigational links or introductory content containing <h1> to <h6> headings.-->
+                                    <!--The <article>element holds content that makes sense on its own.-->
+                        <!--<aside> element is used to mark additional information that can enhance another element but isn’t required in order to understand the main content.-->    
+                            <!--audio appears like this eg.<audio controls><source src=""></audio>-->     
+                            <!--videos appear like this eg.<video src="" controls>Video not supported</video>--> 
+                            <!--<embed> tag  can be used to add local files as well as media content straight from some other websites.It is a self closing tag-->     
+                                <!--internal css is always written in the head tag.Don't forget the type="text/css"--> 
+                                <!-- Multiple classes can be added to an element by listing them in the class attribute and separating them with a space-->
+                                 <!-- block elements forces new lines and accept margin and paddings which affects their layouts eg.<div>, {<h1>-<h6>}, <p>,<footer>,<article> and <section> -->
+                                  <!-- inline elements flows in line and doesn't break new lines. its not affected by margin. However, padding applies to it but it doesn't affect its size because you cant give inline elements height. it doesn't affect the size of the content inside it.its just messing with space between the content and the border eg. links,buttons,labels.<em>,<strong>-->
+                                   <!-- with inline-block, you have the ability to set margin,height and padding like a block element if need be but still have the ability to have them on the same line eg. images -->
+                                    <!-- You can select the last element of a specific type using the last-of-type CSS pseudo-class, like this: .class:last-of-type { property: value; }  this targets the last element of the class.-->
+                                     <!-- you can also select an input with a peculiar type like this : input[type="email"] { property: value; } -->
+                                     <!-- a property of width and a value of unset means that the width will be set to the default value of the element.-->
+                                      <!--IDs override the styles of type and classes, they should be used sparingly and only on elements that need to always appear the same.  -->
+                                      <!-- id overrides class as class is more general than id. Class overrides type as type is more general than class.-->
+                                       <!-- To make styles easy to edit, it’s best to style with a type selector, if possible. If not, add a class selector. If that is not specific enough, then consider using an ID selector. -->
+                                        <!-- In order to center an element, a width must be set for that element. Otherwise, the width of the div will be automatically set to the full width of its containing element, like the <body> -->
+                                            <!-- Overflow property sets the behavior when content does not fit in its parent element. It can be set to visible, hidden, scroll, or auto.-->
+                                             <!--*{margin:0; padding:0} resets the default margin and padding of all elements in a web browser and gives the chance for developers to work with a clean slate .-->
+                                             <!-- box-sizing property controls the type of box model the browser should use when interpreting a web page.The default value of this property is content-box. content-box means that padding and border properties set for an element affects its overall width and height.-->
+                                              <!-- *{ box-sizing:border-box} targets all elements on the web page and sets their box model to the border-box model -->
+                                               <!-- The border-box model clears all the default paddings and margin in a browser.in cases where padding and border properties are applied, the content of the element will shrink to make room for the padding and border. -->
+                                                <!-- The values the position property can take are static, relative, absolute, fixed, and sticky. static is the default value.-->
+                                                 <!-- position:relative; This value allows you to position an element relative to its default static position on the web page -->
+                                                  <!-- When an element’s position is set to absolute, all other elements on the page will ignore the element and act like it is not present on the page. -->
+                                                   <!-- The sticky value is another position value that keeps an element in the document flow as the user scrolls, but sticks to a specified position as the page is scrolled further -->
+                                                    <!-- The z-index property controls how far back or how far forward an element should appear on the web page when elements overlap.it only accepts integer values. the default value is 0.-->
+                                                     <!-- One way to center an element vertically and horizontally in Css is to set their position to absolute, top,bottom,left and right to zero, and margin to auto -->
+                                                     <!--Float usually works for static and relative positioned elements.Floated elements must have a width specified, otherwise,their element will assume the full width of its parent element.
+                                                     and changing the float value will not yield any visible results-->
+                    <!--The clear property specifies how elements should behave when they bump into each other on the page. they accept values of left -->
+                    <!-- With respect to line-height,the unitless value is preferred since it is responsive based on the current font size. -->
+                     <!-- text-align:justify;  spaces out text in order to align with the right and left side of the parent element. -->
+                      <!-- filter:blur(3px) adds a blur effect to an image -->
+                       <!-- The border-radius property accepts up to four values to round the top-left, top-right, bottom-right, and bottom-left corners. -->
+                        <!-- transform:rotate(-45deg); rotates an element by 45 degrees anticlockwise -->
+                         <!-- The flex-wrap property determines how your flex items behave when the flex container is too small. Setting it to wrap will allow the items to wrap to the next row or column. nowrap (default) will prevent your items from wrapping and shrink them if needed. -->
+                          <!-- The justify-content property determines how the items inside a flex container are positioned along the main axis, affecting their position and the space around them. -->
+                           <!-- The align-items property positions the flex content along the cross axis. In this case, with your flex-direction set to row, your cross axis would be vertical. -->
+                            <!-- object-fit:cover; ensures that the image is scaled to cover the entire area of the element it is contained in.ie.This will tell the image to fill the img container while maintaining aspect ratio -->
+                             <!-- The ::after pseudo-element creates an element that is the last child of the selected element.If you give it the same width as the images it will push the last image to the left when the gallery is in a two-column layout -->
+                              <!-- justify content :space-between; will add equal space between the items and the edges of the container -->
+                               <!-- align content :center; will center the items vertically -->
+                                <!-- <p>texts <span> about flex</span></p>,since they're on the same line,applying flex to the <p> will apply it to the <span> as well,with both behaving like flex items -->
+                                    <!-- <p>texts</p> <span>about flex</span>, since these two are on different lines, you'd have to wrap them in a container and apply flex to the container -->
+                                     <!-- the div:not(.example){ color:red;} selects all div's that do not have the class example and sets their color to red -->
+                                      <!-- when a <p> is displayed as a flex, justify content can be used to center the text horizontally or be shifted to its far right as <p> takes up its entire width -->
+                                        <!-- rem,em are all units relative to the size of the html -->
+                                         <!-- img {width: max(250px, 25vw); In the above example, the width of the image will be 250px if the viewport width is less than 1000 pixels(eg.smart phone or yam ). If the viewport width is greater than 1000 pixels(eg.laptop,tv), the width of the image will be 25vw. This is because 25vw is equal to 25% of the viewport width. -->
+                                          <!--  the logo should retain an aspect ratio of 35 / 4, and have padding around the text. -->
+                                            <!-- the role attribute can be used to indicate the purpose behind an element on the page to assistive technologies. eg. <section role="region"></section> -->
+                                             <!-- Every region role requires a label, which helps screen reader users understand the purpose of the region. One method for adding a label is to add a heading element inside the region and then reference it with the aria-labelledby attribute.eg.
+                                              <section role="region" aria-labelledby="region-label"><h2> Region Label</h2></section> -->
+                                              <!-- to be able to link a section on a page to a nav, the href of the link must equate the id of the page -->
+                                               <!-- The ::before pseudo-element in CSS is used to insert content before the content of an element. It is often used to add decorative or functional content without modifying the HTML structure.Without its content property,it'll be rendered inaccessible.Some common uses eg.Adding icons or symbols before text,Creating decorative shapes or lines,Inserting dynamic content using the attr() function,Enhancing design elements without altering the HTML. -->
+                                                <!-- The :first-of-type pseudo-selector is used to target the first element that matches the selector. eg. h1 .flex span:first-of-type{}, this targets the first span element in the element with a class of flex in the h1 element -->
+                                                 <!-- The :last-of-type pseudo-selector does the exact opposite - it targets the last element that matches the selector -->
+                                                <!-- On the topic of visual accessibility, contrast between elements is a key factor. For example, the contrast between the text and the background of a heading should be at least 4.5:1. -->
+                                                 <!-- sr-only
+                                                position: absolute;
+                                                width: 1px;
+                                                height: 1px;
+                                                padding: 0;
+                                                margin: -1px;
+                                                overflow: hidden;
+                                                clip: rect(0, 0, 0, 0);
+                                                white-space: nowrap;
+                                                border: 0;} -->
+                                                <!-- span[class="sr-only"] selector will select any span element whose class includes sr-only -->
+                                                 <!-- The CSS clip property is used to define the visible portions of an element.Set the span[class~="sr-only"] selector to have a clip property of rect(1px, 1px, 1px, 1px) -->
+                                                  <!-- The clip-path property determines the shape the clip property should take. Set the clip-path property to the value of inset(50%), forming the clip-path into a rectangle within the element. -->
+                                                   <!-- The calc() function is a CSS function that allows you to calculate a value based on other values. eg. .example{ margin:10px width:Calc(10px + 20px); } -->
+                                                    <!-- p[class]{} selects all paragraph elements that have a class attribute regardless of the class value -->
+                                                     <!-- span:not[class="sr-only"] will target all span elements that do not have the class sr-only -->
+                                                      <!-- Rather than having to constantly double-check you are not overwriting your earlier properties, you can use the !important keyword to ensure these properties are always applied, regardless of order or specificity.eg. p{color: blue !important ;} will not be overridden by p{ color:green } even if it comes later in the document -->
+                                                       <!-- border-collapse:collapse ; means they allow cell borders to collapse into a single border, instead of a border around each cell i.e is used to collapse the borders of a table so that they do not overlap -->
+                                                        <!-- in relation to table data(td), always set their width to 100vw to ensure they take up the full view width of the table.always remember the min-width and the max-width -->
+                                                         <!-- tables uses <caption></caption> to inform what the table is about -->
+                                                         <!-- [attribute="value"] targets elements that have the specified attribute with the specified value.eg. p[class="total"] targets all paragraph elements that only have a class attribute with the value total -->
+                                                          <!-- The direct child selector (>) only applies to the immediate children of the parent element, but it doesn't prevent you from overriding the styles of individual children. -->
+                                                           <!-- the ::before selector creates a pseudo-element which is the first child of the selected element.eg. p::before{content:"Hello"} -->
+                                                            <!-- the ::after selector creates a pseudo-element which is the last child of the selected element.eg. p::after{content:"World"} -->
+                                                             <!-- The content property is used to set or override the content of the element. By default, the pseudo-elements created by the ::before and ::after pseudo-selectors are empty, and the elements will not be rendered to the page. Setting the content property to an empty string "" will ensure the element is rendered to the page while still being empty. -->
+                                                              <!-- *,*::before,*::after{ box-sizing:border-box} is useful because Pseudo-elements like ::before and ::after are treated as separate elements within their parent element.By default, they inherit the box-sizing property from their parent element. However, explicitly setting box-sizing: border-box for them ensures consistency, even if the parent element’s box-sizing is overridden.-->
+                                                               <!-- Using the ::before and ::after pseudo elements, its width and height alongside the background-color weren't visible until the absolute position was applied. this is an essential note to acknowledge in using pseudo elements  -->
+                                                                <!--  Variable declarations begin with two dashes (-) and are given a name and a value like this: --variable-name: value; -->
+                                                                  <!-- the main advantage of using variables is being able to quickly change many values in your stylesheet by just changing the value of a variable. -->
+                                                                   <!-- You should add a fallback value to a variable by putting it as the second value of where you use the variable like this: var(--variable-name, fallback-value). The property will use the fallback value when there's a problem with the variable. -->
+                                                                  <!-- :root is a way to target the root element of a document, which is the topmost element in the document tree. It's a shorthand way to select the <html> element without having to use the html selector. -->
+                                                                    <!-- :root is commonly used to define global variables, also known as custom properties, that can be used throughout the stylesheet. By defining variables at the :root level, you can make them available to all elements in the document. -->
+                                                                     <!-- viewport sizes
+                                                                      -desktop & laptop-1200px and above. Large(standard-1200)
+                                                                      -tablets and small laptops-768px to 1024px.Medium(standard-992px)
+                                                                      -smartphones-320px-6640px.small(768)
+                                                                      -Extra small(480)  -->
+                                                                      <!-- an element can have two linear gradients. it just has to be separated by a comma  -->
+                                                                       <!-- Using linear gradient, you can transition from any color to transparent -->
+                                                                        <!-- The "loading" attribute on an img element can be set to lazy to tell the browser not to fetch the image resource until it is needed 
+                                                                         (as in, when the user scrolls the image into view). As an additional benefit, lazy loaded elements will not load until the non-lazy elements
+                                                                          are loaded - this means users with slow internet connections can view the content of your page without having to wait for the images to load. -->
+                                                                          <!-- rel="noreferrer" is an attribute used in HTML links (<a> tags). -->
+                                                                            <!--The "Referer" header is a piece of information that the browser sends to
+                                                                             the server of the linked page, indicating the URL of the page that the user
+                                                                              came from. This can be useful for tracking where users are coming from, but
+                                                                               it can also be a security concern, as it can potentially leak sensitive information.
+                                                                               By setting rel="noreferrer", you're telling the browser not to send this information, 
+                                                                               which can help protect user privacy.  -->
+                                                                               <!-- <blockquote cite="https://www.example.com/source">
+                                                                                   <p>This is a quotation from another source.</p>
+                                                                                                                    </blockquote> 
+                                                                               in this eg. the blockquote element contains a text that is 
+                                                                               being quoted from another source. the cite attribute provides
+                                                                               a reference to the source of the quotation. -->
+                                                                               <!-- grid-auto-flow: This property specifies the direction in which the
+                                                                                 grid items will be placed.If you wanted to add more elements, but keep them on the same row,
+                                                                                  you would need to update grid-template-columns to create additional columns.
+                                                                                   As an alternative, you can use the grid-auto-flow property. 
+                                                                                   The possible values are: row, column , row dense, column dense.
+                                                                                   Setting it to column will tell the algorithm to create new columns
+                                                                                    for content as needed. -->
+                                                                                    <!-- When you use grid-auto-columns, you can specify the size of the grid columns
+                                                                                      that will be created automatically. The property can take a variety of values, 
+                                                                                      including: auto,min-content,max-content,length,percentage,fr's -->
+                                                                                      <!-- in grid,just as in flexbox,
+                                                                                       justify-items is used to align grid items along the main axis of the grid.
+                                                                                      align-items is used to align grid items along the cross axis of the grid. -->
+                                                                                      <!-- you can use the column-width property to split the text into multiple columns within a container.
+                                                                                        The column-width property specifies the minimum width of each column eg.
+                                                                                        <div class="container">
+                                                                                            <p>Lorem ipsum dolor sit amet, .</p>
+                                                                                            <p>Ut enim ad minim veniam, q.</p>
+                                                                                            <p>Duis aute irure dolor in.</p>
+                                                                                            </div>
+                                                                                            CSS .container {
+                                                                                                column-width: 200px;
+                                                                                                column-gap: 20px;
+                                                                                                }
+                                                                                               This will split the text into two columns,
+                                                                                                with a minimum width of 200px each, and a gap of
+                                                                                                 20px between them. -->
+                                                                                                 <!-- When you float a text, it will be removed from the normal document flow and will
+                                                                                                   be placed to the left or right of its parent container, depending on the value of 
+                                                                                                   the float property. -->
+                                                                                                   <!-- To clear floats, you can use the clear property, which can be set to left,
+                                                                                                     right, or both. This will remove the float from the element and
+                                                                                                      restore it to the normal document flow.
+                                                                                                      <div style="width: 500px; border: 1px solid black;">
+                                                                                                        <p style="float: left; width: 200px; background-color: yellow;">This is a floated text.</p>
+                                                                                                        <p style="clear: both;">This is a normal text.</p>
+                                                                                                        </div> In this example, the second paragraph will be cleared of the float, which means it will
+                                                                                                         be placed below the floated text. -->
+                                                                                                                            
+         <!--The place-items property can be used to set the align-items
+          and justify-items values at the same time. The place-items
+           property takes one or two values. If one value is provided,
+            it is used for both the align-items and justify-items properties.
+             If two values are provided, the first value is used for the 
+             align-items property and the second value is used for the justify-items property.  -->
+             <!-- By using 1 / -1, the grid item will span from the first column to the last column, 
+              effectively covering the entire width of the grid. eg..parent {
+                                                                            display: grid;
+                                                                             grid-template-columns: repeat(12, 1fr);
+                                                                                                                    }
+
+                                                                            .child {
+                                                                            grid-column: 1 / -1; /* This child will span all 12 columns */
+                                                                            }-->
+                                                                            <!-- Tracking-wider is used for letter spacing in tailwind -->
+                                                                             <!-- in tailwind,group-hover allows elements to be shown on hover -->
+<!-- in tailwind,transform hover:scale-110 duration-150-for transforming how an eg. button appears when hovered over
+  transition ease-out duration-500-for transitioning the hovering state smoothly -->
+  <!-- The transform-origin property in CSS determines the point around which
+    a transformation (such as rotation, scaling, or skewing) is applied to
+     an element. It defines the origin point for the transformation in terms
+      of the element's coordinate system. -->
+      <!--  by default, an element rotates around its center ie. "transform origin:50% 50%" -->
+        <!-- "transform-origin:0% 0%"-rotates an element around its top-left corner -->
+         <!-- ""transform-origin:100% 100%"-rotates an element around its bottom-right corner" -->
+          <!-- "transform-origin is used in conjunction with the transform property such as rotation,scaling,skewing" -->
+
+
+                                                                                                    <!--Git-->
+                                                                                                    <!-- Git is a version control system that helps you track changes in your code.-->
+ <!-- in gitbash you'd have to specify with your name and email so as to confirm who made changes and when ie. $ git config --global user.name "your name"  & $ git config --global user.email "email" -->         
+  <!--In using git to track files, you must change the directory of the powershell to that of the said file ie. $ cd ~/Desktop/git-practice -->   
+  <!--$ls used to list the files in the current folder-->                               
+  <!--To turn it into a git repository, you simply use $ git init where init= initialization-->      
+  <!--when you later check within your file explorer, you can see the git.folder wit all the repository files-->                 
+  <!--$ git status tells us the status of our repository i.e it tells us what changes has been made since our previous version/commit-->   
+  <!-- untracked files means any changes made within those will not be recorded by git-->
+  <!-- the git has three main states ie. modified/working file, staged and committed-->
+      <!--$ git add . adds all files/changes in the current directory to the staging area-->
+      <!--$ git reset <file> takes a file/changes out of the staging area-->
+        <!--to undo all the changes within the working area, you can use $ git checkout -- "file"-->
+      <!-- $ git commit takes a snapshot of all your repository at the moment in time-->
+       <!--you can interchange commit for version just for study purposes-->
+       <!--$ commit -m "message" allows you to add a message to the commit-->
+       <!-- after committing our repository, and we later recognize a spelling mistake with the commit message or an Emittance of a file, we can use $ git commit --amend to correct it or for the latter, $ git add <file> & $ git commit --amend-->
+        <!-- git reset --hard HEAD~1 is used to undo the last commit-->
+       <!-- after modifying your repository, $ git diff shows the differences between the original file and the modified file-->
+        <!--git mv is used to move or rename a file-->
+        <!--$ git log shows the commit history-->
+        <!--Note : git fundamentally tracks changes in files, not the files themselves-->
+        <!-- using $ git checkout (code number), brings you back to that version of your repository-->
+         <!--$ git log --all --graph shows you the branching effect in your commit history-->
+         <!--the branch name be it "main" or "master" points to the latest commit in the branch-->
+         <!-- HEAD in git, tells you the version you are currently operating on  -->
+         <!--if you don't want the updated version of a previous file to branch out but to follow the sole branch even though its at the bottom like google docs then the first thing is to make sure the HEAD is at the latest commit on the master branch ie git checkout master ,followed by 2 rules where the checkout needs not only the (code number) but the file name as well ie. $ git checkout (code number) <file name>/ .-->
+          <!--a .gitignore file can be used to ignore certain files in your repository. all it needs is for the files to be listed in the .gitignore file-->
+          <!-- rm-rf.git is used to remove git from a project-->
+
+
+
+          <!--GITHUB-->
+          <!-- Github provides us with an online backup to our local repositories and it also possesses 2 way sync i.e any update on our computer gets updated in the online repository and vice versa-->
+          <!-- Unlike google drive , github is designed specifically for git repositories -->
+           <!-- you need to link your github account to your local repository in order to transfer your local repositories to your remote repositories and that can be done using $ git remote add origin <github repository link>-->
+            <!-- $ git remote -v shows the remote repository link-->
+            <!-- to remove a link from a remote repository, you can use $ git remote remove <repository name> where <repository name> is likely to be "origin"-->
+              <!-- before we get to push files into our github, we need to configure git with our github username i.e git config --global credential.username "TARIQQ-coder" -->
+               <!-- to push our local repositories to our remote repositories, we use $ git push origin <branch name however, it should be that of which we want to push from the repository>-->
+                  <!-- after pushing your local repository, your remote tracking branch (origin/master) should be of the same version as your local branch (master) when $ git log --all --graph is used-->
+                   <!-- the remote branch (origin/master) tells us what the master branch looks like on the remote repository ie on github-->
+                    <!-- git push only pushes commits to the remote repository, it does not push untracked files-->
+                     <!-- git push origin master -f forces the push of the local branch to the remote repository. it is not an advised practice-->
+                      <!-- to clone a remote repository to your computer, you can use $ git clone <github repository link> ie. the https:-->
+                        <!-- remote tracking branches don't update automatically.it just reflects the stage it was the last time "YOU" updated it. You'd have to use $ git fetch. This updates all remote tracking branches to its current repository. Maybe a co-worker has added new commits to it -->
+                         <!-- To pull a remote repository from github to a local repository,you use $ git pull origin <branch name> -->
+
+               
+
+
+          <!-- Javascript -->
+                                                                                                                <!-- Variables,They act as containers for data that can be referenced and manipulated throughout your code. Variables can hold different types of data, including numbers, strings, objects, arrays, and more. -->
+                                                                                                                 <!-- In JavaScript, when you reassign a variable, the previous value that the variable held is not explicitly deleted; rather, the variable simply points to a new value. The old value may still exist in memory if there are other references to it, but the variable itself no longer holds that value. -->
+                                                                                                                  <!--if say we create a variable eg let result = 0; and we reassign it in a button say result = result+1; know that after every click , the value of reassigned (variable) i.e result will increase by 1 but if we didn't reassign it in the first place, it will remain the same-->
+
+                                                                                                              <!-- a boolean value accesses whether a value is true or false -->
+         <!-- you use a boolean value, you either type true or false -->
+          <!-- in the order of operators, bodmas, comparison operators(ie. <,>,===,!==),logical operators (ie.&&,||,!(not)) -->
+           <!-- "if statements" lets us write multiple group of codes and decide which code to run based on the condition/boolean value  -->
+            <!-- syntax for "if statements".ie. if(boolean /condition){
+             code run if condition is true or otherwise run the if statement}else{} -->
+             <!-- the AND(&&) operator checks if both booleans values are true before running the code -->
+              <!-- the OR(||) operator checks if either of the boolean values is true before running the code -->
+               <!-- if creates a scope and limits where variables are accessible -->
+                <!-- if statements don't work with only boolean values ,they also work with truthy and falsy values. truthy values encapsulates all values except (0,undefined,NaN,null,false,"") -->
+                 <!-- ternary are shortcut for if/else statements -->
+                 <!-- the advantage of ternary operator over if statement is that you can save its result as a variable.ie. if its true, the result after the question mark can be saved as a variable. if not the other, will can be saved as a variable -->
+
+
+                 <!-- MAJOR DISCOVERY -->
+
+                 <!-- Local Variables Reset:
+When you define a variable inside a function (a local variable), that variable is created anew each time the function is called. This means that its value is reset to its initial state every time the function runs. -->
+
+<!-- Global Variables Persist:
+In contrast, when you define a variable outside of any function (a global variable), it retains its value across multiple function calls. This allows you to avoid resetting the variable each time the function is executed. -->
+
+<!-- In many scenarios, you want to accumulate values rather than reset them. For example, in a scoring system for a game, you want to keep adding points to the player's score rather than starting from zero each time a function is called. -->
+
+
+                                                                                                    
+
+          <!-- Function is used to reuse codes or multiple codes -->
+           <!-- syntax for function is function name(parameters){code to be run} -->
+            <!-- Functions allow you to write a piece of code once and reuse it multiple times throughout your project. If you need to make changes to a specific piece of logic, you only have to update it in one place (the function definition) rather than in every instance where the code is repeated. This makes your code easier to maintain.Functions can improve the readability of your code. By giving functions descriptive names, you can make your code self-documenting, which helps other developers (or your future self) understand what the code is doing. -->
+             <!-- One recommendation for picking function names is to use a verb . This makes it clear that the function is performing an action. -->
+           <!-- if we already have a code and we want to run it again, give it a function and call it -->
+           <!-- the only way to get the code in a function to run is to call it -->
+            <!-- we call a function by the function name followed by the parameters in the brackets -->
+            <!-- when the return statement has a value, calling the function will result in the return value -->
+             <!-- the syntax for a return statement is "return value;" -->
+             <!-- if a function doesn't have a return statement or a return value, calling it will render it undefined when console.log is used for display -->
+               <!-- a return statement helps us get a value out of the function ie. whatever the return value is, it will be equal to the name of the function when called. Since its just a value, console.log() displays the return value in a console and it can be saved as a variable -->
+                <!-- the return statement ends the function immediately -->
+                <!-- when we return, the code returns back to the point where the function was called -->
+                <!-- put the code you want to run in the function body -->
+
+               <!-- the syntax for functions -->
+                <!-- no special names like function -->
+                 <!-- no numbers to begin the name -->
+                  <!-- can't use special characters except:$ and _ -->
+                   <!-- use camelCase when naming functions -->
+
+                   <!--functions create a scope and limits and any variable in its curly brackets is only accessible within the curly brackets of the function-->
+                    <!-- variables created in the curly brackets only exist in the curly brackets eg. if , functions create a scope -->
+                     <!-- variables that can be assessed anywhere in the code are called global variables -->
+                      <!-- Functions in javascript can be modified to circumstances where it can work with different variables. In situations as such, the function is called a function with parameters -->
+                     <!-- to reuse codes that have small differences, parameters are useful -->
+                      <!-- a parameter puts a value into a function -->
+                       <!-- a parameter works the same way as a variable. you can save a value inside and use it as a variable ie. you can save in it a boolean , number, string etc -->
+                        <!-- using parameter works when you have a value that you want to use in a function so you save it in a parameter , use the parameter to modify the function so when you call the function, the value is used -->
+                        <!-- a parameter only exits in the curly brackets of the function -->
+                        <!--anytime the function is called, another value can be saved into the parameter. Any value saved inside can be used as a variable -->
+                        <!-- a function can have more than one parameter -->
+                        <!-- a parameter can be a number ie function name(number){code to be run} -->
+                        <!-- to set a default value for a parameter, you can use the assignment operator eg. function name(number = 5){code to be run} -->
+
+
+
+                        <!-- OBJECTS-->
+                          <!-- objects are used to store multiple values in a single variable -->
+                           <!-- the syntax for objects is const name = {key1:value1,key2:value2} -->
+                            <!-- say we have an object saved within a variable, we can access the properties of the object using the dot notation ie. variable.property -->
+                           <!-- We can correct an existing value of a property using the assignment operator ie. variable.property = new value --> 
+                            <!-- Using the dot notation, we can add a new property to an object ie. variable.new property = new value -->
+                             <!-- To delete the property of an object, we use the delete keyword ie. delete variable.property -->
+                              <!-- objects are also another type of values and as such they can be saved in a variable or console.log()  -->
+                               <!-- Instead of having several variables with related data, we can store the related data into one object -->
+                                <!-- objects lets us use multiple values together. Unlike having to console.log and use several single variables, we can put them together in an object and use them together using the variable the object is saved in -->
+                                 <!-- the syntax for the bracket notation is variable['key'] and it is another way to access the values of an object. note: key is the name of the property -->
+                                  <!-- using bracket notation, we can add values to the object ie. variable{['new-key1'] = new value, ['new-key2'] = new value} -->
+                                   <!-- another feature of bracket notation is within the bracket, we don't have to necessarily use a string, it can use a variable, some calculations etc  -->
+                                    <!-- Inside an object, we can save any type of value. be it strings,numbers,booleans, functions,other objects etc because objects themselves are a type of value -->
+                                     <!-- if we save a function inside an object its like a function with parameter and its called when we use the bracket notation ie. variable['function-name'](parameter) -->
+                                      <!-- methods are functions that are saved inside an object -->
+                                       <!-- Built in objects are built into the language eg. console.log (), math.random(), JSON, localStorage -->
+                                        <!-- JSON is a built in object thats similar to a javascript object but with less features -->
+                                         <!-- All properties and strings in JSON has to be enclosed in double quotes  and it does not support functions -->
+                                        <!-- Javascript syntax only makes sense in javascript, however, JSON syntax is universal and can be used in any language -->
+                                          <!-- We also use JSON to store data in a file -->
+                                          <!-- JSON is used to send data between computers -->
+                                          <!-- Built-in JSON is used to convert javascript objects to JSON and vice versa -->
+                                            <!-- JSON.stringify() is a method of the JSON object.ie. (it is a function (stringify) saved in an object (JSON))  and it is used to convert javascript objects to JSON -->
+                                            <!-- inside the JSON.stringify() brackets, we can pass the javascript object and it will convert it to JSON -->
+                                              <!-- JSON.stringify() actually results in a string -->
+                                              <!-- To convert from a JSON string to a javascript object, we use JSON.parse() -->
+                                                <!-- localStorage is a built-in object that is used to store data in a file/more permanently -->
+                                                <!-- Variables are temporary and when we refresh our page , they are lost, however, localStorage is permanent and doesn't get deleted whe the page is refreshed -->
+                                                  <!-- The syntax for saving into localStorage is localStorage.setItem('key','value'), where 'key' is the name of the property and 'value' is the value of the property -->
+                                                  <!-- localStorage only accept strings -->
+                                                    <!-- localStorage.getItem('key') loads the value of the property with the name 'key' that was saved in localStorage -->
+                                                    <!-- you can console.log() the localStorage.getItem('key') to see the value of the 'key' saved -->
+                                                       <!-- Something that doesn't exist in localStorage will return null -->
+                                                        
+
+                                                        <!-- SIDE NOTES -->
+                                                         <!-- Null and undefined represent the absence of a value, however when we inset null into a function, we want to make the function empty unlike undefined which uses the default value if the parameter of the function has a default value -->
+                                                          <!-- strings can also have properties eg . const name = 'John Doe' and name.length will return the length of the string -->
+                                                           <!-- strings alo have methods eg. name.toUpperCase() will return the string in uppercase -->
+                                                            <!-- OBJECTS are references -->
+                                                             <!-- When we create an object, the properties along with the values gets saved somewhere in the memory of the computer, however, the object names itself is just a reference to the location in the memory where the object is saved -->
+                                                              <!-- When we equate a variable to an object, we are equating the variable to the reference of the object which is the object name. this is called Copy by Reference  ie. const name = {key1:value1,key2:value2} and const name2 = name 
+                                                               now, name and name2 are referencing the same object in the memory -->
+                                                               <!-- Const prevents us from changing the reference of the variable, however, it doesn't prevent us from reaching into the reference and changing the properties of the object it is referencing -->
+                                                                <!-- We cant compare objects directly ie.if two variables have the same objects that was stated explicitly, we can't compare them directly using the equality operator ie. if (name === name2). We are actually comparing their references not the objects they are referencing -->
+
+                                                                <!-- SHORT CUTS -->
+                                                                 <!-- const object = {message : 'hello'}
+                                                                  const {message} = object; is the same as const message = object.message -->
+                                                                  <!-- const object = {message : 'hello', price:799}
+                                                                  const {message} = object; is the same as const message = object.message and
+                                                                  const {price} = object; is the same as const price = object.price. they can be in the same line like this: const {message,price} = object -->
+                                                                  <!-- const object = {method: function function1 (){console.log('happy')} can be written as const object ={ method(){console.log('happy')}  } -->
+                                                                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto odit nemo soluta tempore hic earum porro ut quod reiciendis. Harum, voluptatem est! At, vero necessitatibus perspiciatis voluptatum porro doloribus ex.
+                        
+    
+
+
+
+
+
+
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> My forms</title>
+    </head>
+    <body>
+        <h1>My forms</h1>
+        <form action="index.php">
+
+        <label for="username"> username:</label>
+        <input type="text" id="username" placeholder="enter your name" minlength="4" maxlength="25">
+       
+
+   <br> <label for="password">password:</label>
+   <input type="password" id="password" maxlength="12"><br>
+
+   <label for="email">email:</label>
+   <input type="email" id="email" placeholder="Usif@gmail.com" ><br>
+
+   <label for="telephone">tel #:</label>
+   <input type="tel" id="telephone" placeholder="012-345-6789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"><br>
+
+   <label for="bday">birthday</label>
+   <input type="date" id="bday">
+
+   <br><label for="quantity">quantity</label>
+   <input type="number" id="quantity" min="0" max="99" value="1"><br>
+
+   <label for="title">title:</label>
+   <label for="Mr">Mr</label>
+   <input type="radio" id="Mr" value="Mr" name="title">
+
+   <label for="Mrs">Mrs</label>
+   <input type="radio" id="Mrs" value="Mrs" name="title">
+
+   <label for="phd">phd</label>
+   <input type="radio" id="phd" value="phd" name="title"><br>
+
+
+   <label for="payment">Payment</label>
+   <select id="payment">
+    <option value="visa">visa</option>
+    <option value="mastercard">mastercard</option>
+    <option value="momo">momo</option>
+   </select><br>
+
+   <label for="subscribe">Subscribe</label>
+   <input type="checkbox" id="subscribe" value="subscribe"><br>
+<br>
+   <label for="comment">comment</label>
+   <textarea id="comment" rows="5" cols="3" placeholder="text here"></textarea>
+
+
+
+
+       
+       
+       
+       
+        <br> <input type="submit">
+
+
+
+
+
+
+
+
+
+        </form>
+    </body>
+
+
+
+
+
+</html>
