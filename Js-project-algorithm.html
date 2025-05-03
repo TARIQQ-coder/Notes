@@ -1,0 +1,105 @@
+<!-- ROCK PAPER SCISSORS GAME ALGORITHM -->
+ <!-- Created the button for the game ie. Rock,Paper Scissors -->
+  <!-- The goal here is to set up the code where when we click a button, the computer randomly selects a move, compare the move to the our choice (our clicked button) to get the result,and we finally display the result in a pop up  -->
+   <!-- now we compare our move to the computerMove to get the result -->
+    <!-- the last step is to display in a pop us -->
+     <!-- we'd be grouping some of our codes into functions as they've been repeated severally. The code for the computerMove has been repeated thrice so we created a function pickComputerMove to hold the code so it could be re-used -->
+      <!-- ideally computerMove variable should be out of this function so it could be accessible at the comparison stage and the alert stage however, we can still achieve this by return. -->
+       <!-- here, the returned computerMove is equal to the function called, however it must be saved so it becomes accessible -->
+        <!-- we can create a function for the code that compares the choices and pass the little differences as parameters -->
+
+        <!-- we need to a section that updates the score whenever the game is played. Here, we create an object outside the scope of the function to do that. the reason for object is that objects can be used to save variables with related information. the object is created outside the scope of the functions so it retains the score of the games played over that period  however, that'll not be the case if its saved in a function as there'll be a new score every time the game is played which is not what we want   -->
+         <!-- after comparing moves, we can update the score object.  -->
+          <!-- we also set the reset button and onclick, we reset the score object -->
+           <!-- after updating the score,we need to save it to localStorage -->
+            <!-- our next move is to display the score on the page and as we play the game, update the score which is on the page -->
+             <!-- i created an html element, got it into javaScript and set the innerHTML to the score i wanted to display.The javascript object(html in javascript) is updated with the current score immediately when the page loads and this is because,the score is initialized based on the values retrieved from localStorage or defaults to zero if no score exists -->
+              <!-- Similarly, the javascript object(html in javascript) is placed into the playGame() so when the game is played, the score aldo gets updated automatically  -->
+               <!-- i was able to create a function for the javascript object meant to display the score. ie. updateScoreElement() -->
+                <!-- i made the reset button interactive by passing the updateScoreElement() in it so it modifies the score on the page when interacted with -->
+                 <!-- The next course is to display the moves of each player ie. (user and computer) and the result after each game on the page  -->
+                  <!-- i did this by creating an html element to do the display ie. one for each, got them into javascript specifically into the function and equated both innerHTML to their respective displays -->
+                   <!-- style the page -->
+                    <!-- with respect the the html elements, which are meant to display after the game is played, i gave them a fake content,styled them and replaced the one's in the code with them(moves that displayed images) -->
+                     <!-- AUTOPLAY -->
+                      <!-- here, we use the inbuilt setInterval(). setInterval() take two parameters. 1. the function to run 2. time it takes to run (milliseconds). With setInterval the function will keep run after every timeout -->
+                       <!-- we use the setInterval() to build the auto play function fo the game -->
+                        <!-- first, we create a function in the onclick attribute of the auto play to hold the code. autoPlay() -->
+                         <!-- in the autoPlay(), we use setInterval(). the time component is 1000. in the function component, we call the playGame(playerMove) but first we need to define playerMove as the intention is to make the computer play against itself. Notice, we have a function for picking a random move (pickComputerMove). lets equate the playerMove to that so when we finally call the playGame(playerMove), it serves the purpose we wish to achieve. ie. Computer vs Computer -->
+                          <!-- the next move is to make it stop playing after clicking on it again -->
+                           <!-- here, we state a variable eg. isAutoPlaying = false; and we use this logic in an "if" statement to achieve the required result.you establish a clear starting point for the variable. This indicates that, at the beginning of your program, autoplay is not active.Predictable Behavior: When the program starts, you know that the autoplay feature is off. This predictability is crucial for the logic that follows, as it allows you to make DECISIONS BASED ON THE CURRENT STATE OF THE FLAG. -->
+                            <!--we set the variable outside the auto play function so we can reassign the variable(inside the if) after the autoPlay starts.ie. we reassign isAutoPlaying = true; after the game starts playing-->
+                            <!-- next, remember that setInterval() returns a number (like an "id") whenever it is called.we'd use the number to stop the interval -->
+                             <!-- we create the variable to save the "id" (intervalId) outside the function so it retains the "id" the last time the function was run. inside the function will produce a new id every time -->
+                              <!-- with the "id"(intervalId) in place, we stop the game by calling clearInterval() and we pass the "id" into it.ie.clearInterval(intervalId) -->
+                               <!-- after stopping, we reassign the variable isAutoPlaying = false -->
+                                <!-- CHANGING FROM ONCLICK TO ADDEVENTLISTENER -->
+                                 <!-- the goal here is to change the buttons from onclick to addEventListener().  -->
+                                  <!-- we give each button a class, get them into javascript and event listeners to all. in the second condition for the addEvenListener(), the playGame() should be inside a function so that "after click", then the function runs. -->
+                                   <!-- USING KEYDOWNS TO PLAY THE GAME -->
+                                    <!-- here we're going to use the body element. We get the body into javascript,use addEventListener on it  -->
+
+
+
+           <!-- CART QUANTITY -->
+            <!-- we created the buttons for "show quantity", "add to cart",+1,+2,"reset cart" -->
+             <!-- we defined the cart quantity.ie. we saved the cart quantity in a variable  -->
+              <!-- the goal here is to display the cartQuantity as a string 'cart quantity: number' in the console when a click on the button -->
+
+
+              <!-- YOUTUBE SUBSCRIBE BUTTON -->
+               <!-- The algorithm here is 1. If the text inside the button is "subscribe", then after click, we change it to "subscribed" 2. if not (subscribe), then we change it to subscribe -->
+                <!-- here, we get the button into javascript, and apply the algorithm -->
+                 <!-- to make the code cleaner, we moved all the javascript code embedded in the onclick attribute into a javascript function -->
+                  <!-- i made another adjustment in the sense that, i styled the button and used "if" to state an argument that if the button didn't have a particular class(contained another style), then it should include that as a class and change the "innerHTML" to 'Subscribed' and it it already has, should remove that class and revert its 'innerHTML' back to 'subscribe' -->
+                   <!-- it worked perfectly as we clicked on the button -->
+                    <!-- style the page -->
+
+
+                   <!-- AMAZON SHIPPING CALCULATOR -->
+                    <!-- Orders under $40 = + $10 shipping -->
+                    <!-- Orders over $40 = FREE SHIPPING -->
+                     <!-- i created the input element and button element -->
+                      <!-- all of the work will be in the onclick attribute of the button -->
+                       <!-- the goal here is that when we click on the "calculate" button, we get the value of the input. if the value is less than $40, we add an additional shipping fee of $10. if not we let it be. however,we'd be displaying the result on the page -->
+                        <!-- i put all the code in a function called calculateCost() and called it in the button -->
+                        <!-- the next move is to make a key on our keyboard sensitive and perform the same task as we clicking on the calculate button -->
+                         <!-- here, the algorithm is we check if the "key" entered is "enter",if it is, it should perform the the task of calculateCost()  -->
+                          <!-- SIDE-NOTE -->
+                           <!-- Whenever we get a value from the DOM like inputButton.value, its a string, so to covert into a number, we use the Number() function to manually convert it to a number -->
+                          <!-- "Clicks" and "keydown" are events whiles onclick and onkeydown are event listeners which check for events and execute javascript when the events occur eg of events and event listeners are : scroll-onscroll , click-onclick, keydown-onkeydown, mouseover-onmouseover (hovering) etc -->
+                          <!-- NB:Every event listener has an event(click/key) object which contains information about the event (click/key) that occurred. -->
+                        <!-- Using onkeydown = console.log(event); on an input,you can display the event(click/key) object with its properties including the key pressed, the key code, the location of the key pressed etc.  -->
+                         <!-- i used the event.key property to make the enter key perform just as Calculate button -->
+                          <!-- style the page -->
+
+
+                          <!-- TODO-LIST -->
+                           <!-- i created the input and the add button first -->
+                            <!-- STEPS -->
+                            <!-- 1. i create an array to store our todo's.
+                             2. when we click on the add button, 
+                             3.we get the text out of the input
+                             4.we add the text to our array
+                             5.console.log the array   -->
+                             <!-- after one, we create a function for the add button called addTodo() -->
+                             <!--inside the created addTodo, we get the input inside javascript using its class, the its innerHTML(value) and save it. the push it into the array  -->
+                             <!-- the next move is to reset the textbox after we've added something to the array. we do this by setting the innerHTML(value) of the input to empty strings -->
+                              <!-- PART 2 -->
+                               <!-- after adding some items to the todoList array, we loop through the array and for each item, create some html,use accumulator pattern to combine them, and display it in the page -->
+                                <!-- for the loop i used forEach. the parameter,todo etc. -->
+                                 <!-- for display i created an html and set its innerHTMl to the accumulator pattern to display it on the page -->
+                                  <!-- after this we create a function (renderTodo()) to hold the code which starts from looping through the array to displaying it on the page and call it in the addTodo() so when we add another todo, it automatically runs the function and display it on the page -->
+                                   <!-- DELETE BUTTON -->
+                                    <!-- since we looped through the cart to generate the html for the each item(which we displayed), we can use that html to generate the delete button -->
+                                     <!-- we just add the delete button and use todoList.splice(i,1) so when we click on the delete, it removes the todo that matches its index.we need to apply the renderTodo() so it displays the modification on the page -->
+                                      <!-- ADDING THE DATE INPUT -->
+                                       <!-- after adding tha date input, we need to update the array so it depicts that of a user choosing a todo,a date and hen he adds both gets displayed on the page -->
+                                        <!-- now in the html generated, the content has to be modified to display not the item in the array which is now an object, but the objects name and dueDate -->
+                                         <!-- we need to get into the addTodo() and update what gets pushed into the array. we push the name and dueDate to the array -->
+                                          <!-- style them -->
+                                           <!-- CHANGING FROM ONCLICK TO ADD EVENT LISTENERS -->
+                                          <!-- the goal here is to change the buttons from onclick to addEventListener().  -->
+                                        <!-- we give each button a class, get them into javascript and event listeners to all. in the second condition for the addEvenListener(), the addTodo() should be inside a function so that "after click", then the function runs. -->
+                                         <!-- CHANNGING DELETE ONCLICK TO ADD EVENT LISTENER -->
+                                          <!-- we add a class to the delete button and call it in javascript. remember to use document.querySelectorAll. we loop through it and add event listeners to all. remember to add the index as a parameter so the delete button can identify which item it should remove  -->

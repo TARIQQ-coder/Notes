@@ -347,8 +347,8 @@ In contrast, when you define a variable outside of any function (a global variab
                                   <!-- using bracket notation, we can add values to the object ie. variable{['new-key1'] = new value, ['new-key2'] = new value} -->
                                    <!-- another feature of bracket notation is within the bracket, we don't have to necessarily use a string, it can use a variable, some calculations etc  -->
                                     <!-- Inside an object, we can save any type of value. be it strings,numbers,booleans, functions,other objects etc because objects themselves are a type of value -->
-                                     <!-- if we save a function inside an object its like a function with parameter and its called when we use the bracket notation ie. variable['function-name'](parameter) -->
-                                      <!-- methods are functions that are saved inside an object -->
+                                     <!-- if we save a function inside an object its like a function with parameters.To confirm, console.log(typeof console.log) . it shows function. Meaning "console" is an object with "log" a function, saved inside it-->
+                                      <!-- methods are functions that are saved inside an object.NB: they are the functions saved in the objects -->
                                        <!-- Built in objects are built into the language eg. console.log (), math.random(), JSON, localStorage -->
                                         <!-- JSON is a built in object thats similar to a javascript object but with less features -->
                                          <!-- All properties and strings in JSON has to be enclosed in double quotes  and it does not support functions -->
@@ -386,14 +386,517 @@ In contrast, when you define a variable outside of any function (a global variab
                                                                   <!-- const object = {message : 'hello', price:799}
                                                                   const {message} = object; is the same as const message = object.message and
                                                                   const {price} = object; is the same as const price = object.price. they can be in the same line like this: const {message,price} = object -->
-                                                                  <!-- const object = {method: function function1 (){console.log('happy')} can be written as const object ={ method(){console.log('happy')}  } -->
-                                                                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto odit nemo soluta tempore hic earum porro ut quod reiciendis. Harum, voluptatem est! At, vero necessitatibus perspiciatis voluptatum porro doloribus ex.
-                        
-    
+                                                                  <!-- const object = {method: function function1 (){console.log('happy')} can be written as const object ={ method(){console.log('happy')}  } -
+                         
+                                                                  
+                                                                   
+                        <!-- DOCUMENT OBJECT MODEL -->
+                         <!-- DOM is a built -in object that represents the structure of the HTML document -->
+                          <!-- document is a built in object provided by javascript -->
+                           <!-- the document object and the web-page are connected ie. when we change the properties of the document object, the web-page changes and vice versa -->
+                            <!-- the document objects represents /models the web-page -->
+                             <!-- document.title gets the title of the web-page (into javascript)  and changing it changes the title of the web-page -->
+                              <!-- document.body takes the body HTML elements of the web-page and puts it into javascript -->
+                               <!-- the DOM combines the HTML and javascript on a page and gives javascript controls of the page -->
+                                <!-- NB: if an HTMl is inside a javascript, it gets converted into a javascript object  -->
+                                 <!-- document.body.innerHTML. Here, the innerHTML targets and controls all the HTML elements inside the body element and if it is changed, it changes the entire HTML elements inside the body element -->
+                                  <!-- document.querySelector() lets us get any element from the page and put it into javascript.you can console.log() it or save it in a variable and then use it to change the properties of the said element -->
+                                   <!-- Every html in javascript has an innerHTML property which lets us control the html in the element -->
+                                    <!-- Every html in javascript has a remove() method which lets us remove the html in the element. in situations as such, its advisable to save the the element in a variable first before removing it -->
+                                    <!-- a common practice when selecting  elements using the class attribute for javascript is to use "js-" before the class name to avoid conflicts with CSS -->
+                                     <!-- HTML elements in Javascript are Javascript objects and since OBJECTS are just values, we an save them as variables and also you can use the innerHTML property to target the HTML of the element -->
+                                      <!-- innerText doesn't mind the space between the text and the element, however, innerHTML does -->
+
+                                      <!-- BIG DISCOVERY -->
+                                       <!-- .js-score: This element is updated with the current score immediately when the page loads by calling the displayScore() function. The score is initialized based on the values retrieved from localStorage or defaults to zero if no score exists. -->
+                                        <!-- .js-result and .js-move: These elements do not have any initial values set when the page loads. If you do not explicitly set their content, they will remain empty until the user interacts with the game (i.e., until a button is clicked and the playGame function is executed). -->
+
+                                        <!-- Setting Initial Values: To ensure that .js-result and .js-move display meaningful content when the page loads, you need to initialize them with default values. In the revised code, we set: -->
+
+                                        <!-- Dynamic Updates: After the user makes a move, the playGame function updates the content of .js-result and .js-move based on the player's choice and the computer's choice. This is why they only show meaningful content after a game is played. -->
+
+                                        <!-- MAJOR DISCOVERY WITH REGARDS TO THE INPUT DOM CALCULATE SHIPPING -->
+                                         <!-- User Experience: If you don't reset the messages, the user might see outdated information or error messages from previous calculations, which can be confusing. For example, if a user enters a valid cost after previously entering an invalid one, they should not see the old error message. -->
+
+                                         <!-- Early Exit: The return statement immediately exits the calculateTotal function if the condition is met. This prevents any further calculations from being performed with an invalid cost. If you didn't return here, the function would continue executing, potentially leading to incorrect calculations or unexpected behavior. -->
+
+
+                                        <!-- Whenever we get a value from the DOM like inputButton.value, its a string, so to covert into a number, we use the Number() function to manually convert it to a number -->
+                                         <!-- Clicks and keydown are events whiles onclick and onkeydown are event listeners which check for events and execute javascript when the events occur eg of events and event listeners are : scroll-onscroll , click-onclick, keydown-onkeydown, mouseover-onmouseover (hovering) etc -->
+                                          <!-- NB:Every event listener has an event(click/key) object which contains information about the event (click/key) that occurred. -->
+                                           <!-- Using onkeydown = console.log(event); on an input,you can display the event(click/key) object with its properties including the key pressed, the key code, the location of the key pressed etc.  -->
+                                            <!-- NB: if a string contains only numbers, and we (-*/), javascript automatically converts the string into a number, however, if we (+), javascript automatically converts it into a string -->
+
+                                            <!-- when you use the + operator with a string and a number, JavaScript performs string concatenation by converting the number to a string. This is different from the increment operator (++), which always results in a numeric value when applied to a variable, even if that variable initially holds a string. -->
+
+                                            <!-- HTML,CSS AND JAVASCRIPT -->
+                                             <!-- Just like how all html elements in Javascript are Javascript objects which can be saved as variables, they also have properties like innerHTML,innerText, classLists. classlist is a property that gives us control over the class attribute of the element -->
+                                              <!-- classList itself is an object which has methods like add(), remove(), toggle() etc. classList.add('value') adds a class called value to the element. Also classList.contains('class-name') checks if the element has a class called class-name -->
 
 
 
+                        <!--ARRAYS AND LOOP -->
+                        <!-- Array is another type of value in javascript which represent a list of values -->
+                         <!-- Since they are just values, they can be saved in a variable  and they can be saved in other arrays-->
+                          <!-- To get a specific value in an array, you can use the []bracket notation eg: MyArray[0] where MyArray is the name of the array and 0 is the index of the value you want to get -->
+                           <!-- To change say the second value in ana array eg. MyArray[1] = 20 . this changes the second value in the array to 20 -->
+                            <!-- The syntax for arrays eg [12,20,27,true,'hello'] and Since they are just values, they can be saved in a variable. their index starts from 0 -->
+                             <!-- console.log(typeof [1,2]); results in object because ARRAYS ARE A SPECIAL TYPE OF OBJECTS in javascript -->
+                              <!-- console.log(Array.isArray([1,2])); results in true and this checks if the value is an array -->
+                               <!-- Since arrays are objects, they have methods and properties like length which gives us the number of values in the array -->
+                                <!-- Arrays have methods like push() which adds values to Arrays eg. MyArray.push(20) adds 20 to the end of the array -->
+                                 <!-- Arrays have methods like splice() which removes from Arrays eg. MyArray.splice(0,1) removes the first value in the array. Here, the "0" indicates where to start removing from and the "1" indicates how many values to remove -->
 
+                                 <!-- THE SYNTAX FOR "WHILE LOOPS" -->
+                                  <!-- loop variable ie let i = 0 ; is the variable that will be used to control the loop.
+                                 while (loop condition){ loop body, increment step} where increment step is the variable that is incremented in each iteration of the loop -->
+
+                                 <!-- SYNTAX FOR "FOR LOOPS" -->
+                                  <!-- for (loop variable;loop condition;increment step){loop body} -->
+
+                                  <!-- We use while loops for non-standard iterations of a loop. eg. when we don't know how many times to loop.We use for loops for standard iterations of a loop eg. when we know how many times to loop -->
+
+                                  <!-- LOOPING THROUGH AN ARRAY -->
+                                  <!-- Looping through an array means to go through the each value of an array one by one and doing something with each value -->
+
+                                  <!-- SYNTAX FOR USING ACCUMULATOR PATTERN -->
+                                   <!-- The accumulator pattern rules involve for 1. to create a variable to save the result 2. Loop through the array to update the result  -->
+
+                                   <!-- Just like Objects are references, Arrays are references too -->
+                                     <!-- When we create an array, the values gets saved somewhere in the memory of the computer, however, the array names itself is just a reference to the location in the memory where the arrays is saved -->
+                                                              <!-- When we equate a variable to an array, we are equating the variable to the reference of the array which is the array name. this is called Copy by Reference  ie. const name = [value1,value2] and const name2 = name 
+                                                               now, name and name2 are referencing the same array in the memory -->
+                                    <!-- The only way to make sure that with the above example, if we push a value into name2, and we console.log both name and name2, both would not display equal values is to use slice. ie . const name2 = name.slice(). with this, name and name2 are referencing different arrays in the memory. the slice() makes sure name2 makes a copy of the array name is referencing in memory -->
+                                     <!-- const [firstValue] = [4,66,74,53] . Here the first value(4) gets saved in a variable called firstValue-->
+                                      <!-- loops also have break and continue statements. break stops the loop while continue skips the current iteration of the loop -->
+                                       <!-- loops also have remainder statement. if you want the iteration to skip all values divisible by 3 ie. if(i % 3 === 0){continue;}. This will skip all values divisible by 3 in the loop -->
+                                        <!-- if you want to skip all iteration with a remainder of 1 ,ie. if(i % 3 === 1){continue}. This will skip all values with a remainder of 1 in the loop -->
+                                         <!-- in a while loop, if we want to make the continue statement effective we need to state the increment step manually ie before the continue statement . This is so to avoid skipping the increment step which is necessary for the loop to continue and to avoid the infinite loop -->
+                                          <!-- We can utilize loops with functions and use parameters to try out different arrays eg. below -->
+                                          <!-- function doubleArray(num){
+                                            let doubledNumbers = [];
+                                            for(let i = 0; i < num.length; i++){
+                                                const numbers = num[i];
+                                                doubledNumbers.push(numbers* 2);
+                                            }
+                                            return doubledNumbers;
+                                          }
+
+                                          console.log(doubleArray([8,4,2,3,4,5]));
+                                          console.log(doubleArray([3,3,1]));  Here we used the loop on two different arrays and we got the expected results -->
+
+                                          <!-- ADVANCED FUNCTIONS -->
+                                           <!-- Functions themselves are values which can be saved in variables and passed as arguments to other functions. Since they are values, they do whatever values do -->
+                                            <!-- If there's a way of accessing a function, its name is not needed.eg 
+                                             const function1 = function greeting(){console.log('Hello');}.
+                                             We can access the function by using the variable eg. function1() and with this, we can let go of the function name being 'greeting' -->
+                                            <!-- A function without a name is called Anonymous function -->
+                                             <!-- setTimeout() allows us to run a function in the future -->
+                                              <!-- setTimeout is a built-in function and "()" means to call a function so setTimeout() is calling the setTimeout function -->
+                                               <!-- setTimeout() takes two values. 1. the function we wish to run, 2. how long to wait before the function runs (in milliseconds) -->
+                                                <!-- Asynchronous code means the computer doesn't wait for the function with a timer, to finish first before moving to other lines. It sets the timer, moves to the following lines to execute the codes up until the timer is done and then it runs the function with the timer -->
+                                                 <!-- Synchronous code means the computer will wait to execute a line of code before it moves on. All the codes we have been writing so far are synchronous code -->
+                                                  <!-- setInterval() takes the same syntax as setTimeout() however, with setInterval(), the function repeats after every timeout -->
+
+                                                  <!-- MAJOR DISCOVERY WITH REGARDS TO THE AUTO-PLAY BUTTON IN ROCK,PAPER... -->
+                                                   <!-- Initial Value: By initializing isAutoPlaying to false, you establish a clear starting point for the variable. This indicates that, at the beginning of your program, autoplay is not active.
+Predictable Behavior: When the program starts, you know that the autoplay feature is off. This predictability is crucial for the logic that follows, as it allows you to make DECISIONS BASED ON THE CURRENT STATE OF THE FLAG. -->
+
+<!-- Conditional Logic: The isAutoPlaying flag is used in conditional statements to determine whether to start or stop the autoplay. If it is not initialized, the behavior of these conditions could be unpredictable.
+Avoiding Errors: If you try to use a variable that has not been initialized, it may lead to unexpected behavior or errors. For example, if you check an uninitialized variable in a condition, it may evaluate to undefined, which can lead to logic errors. -->
+
+<!-- Setting isAutoPlaying to true: This indicates that the autoplay has started. It should only be set to true when you are starting the interval.
+Setting isAutoPlaying to false: This indicates that the autoplay has stopped. It should only be set to false when you are stopping the interval. -->
+
+<!-- another way to loop through an array is to use a method of an array called forEach(); This is actually the proper way to loop through an array. Inside the forEach() brackets, we pass a function with a parameter and the code to execute. The function within forEach() can contain multiple parameters-->
+ <!-- const Array1 = ['make dinner', 'wash dishes','buy tickets']
+
+    Array1.forEach(function(value,index){
+      console.log(value);
+      console.log(index);
+    }) in this example, every value in the array is saved inside the parameter (with its index) and it is used to run the function -->
+     <!-- return statement does the same thing in forEach() as continue does in for loop. It stops the execution of the function and moves to the next iteration -->
+      <!-- const Array1 = ['make dinner', 'wash dishes','buy tickets', 'watch a movie','do the laundry']
+
+    Array1.forEach(function(value,index){
+      if(value === 'watch a movie'){
+        return;
+      }
+
+      console.log(value);
+      console.log(index);
+    })  this will only print out the items in the array except 'watch a movie' -->
+
+    <!-- arrow functions are shorter ways to create functions -->
+     <!-- the syntax for arrow functions is const cheek = (parameter) => {code to execute}. you can call this function by using the variable name eg. cheek() -->
+      <!-- arrow function works the same way as regular functions. It can take parameters, return values, and even have multiple parameters -->
+       <!-- The shortcuts are these -->
+        <!-- if an arrow function has one parameter, you can do away with the parentheses eg. const cheek = x => {code to execute} -->
+         <!-- if you have a one line arrow statement, it returns the value at the right side eg.
+          const cheek = () => 2 + 3;
+          console.log(cheek()); // outputs 5 -->
+          <!-- Whenever we want to pass a function into another function, its best to use arrow functions. This is because arrow functions are more concise and easier to read -->
+           <!-- a shortcut for saving a function in an object eg.
+            const object1 = {
+            method(){}
+
+            instead of method: function(){}
+            } In saving a function into an object, it is recommended to use this instead-->
+
+            <!-- AddEventListener() -->
+             <!-- Every html element has a method called addEventListener() which allows you to attach an event listener to the element and it executes a function when the event occurs -->
+              <!-- addEventListener() has two parameters. 1. what event are we to listen for and 2. what function are we to execute when the event occurs -->
+               <!-- eg. document.addEventListener('click', () =>{console.log('document was clicked')}) . here the console .log is the function that will be executed when the document is clicked -->
+               <!-- An advantage of addEventListener() is that it can be used to attach multiple event listeners to the same event -->
+                <!-- removeEventListener() is used to remove an event listener from an element. the parameters are the same as addEventListener() however, the function to be used in the second parameter should be saved in a variable and then passed to removeEventListener() otherwise, the function will not be recognized-->
+
+                <!-- BIG DISCOVERY -->
+                 <!-- When you use an arrow function (or any function) directly in the addEventListener method, you are creating a new function instance each time. This means that the function you are trying to remove with removeEventListener is not the same instance that was added. -->
+                 <!-- By defining the event handler function separately, you ensure that you are using the same function instance for both adding and removing the event listener. This is essential for removeEventListener to work correctly.ie. by defining the function, you give removeEventListener function the chance to actually reference the function you wish to remove-->
+
+                 <!-- The fact that we can add multiple events listener to the same events as well as remove them is a big advantage of addEventListener() over the onclick attribute  and highly recommended to use addEventListener() over the onclick attribute -->
+
+                 <!-- BIG DISCOVERY -->
+                  <!-- The parentheses () after playGame('rock') mean that you are calling the function right away. This means that the function runs immediately when the code reaches this line, not when the button is clicked. You can wrap the function call in an arrow function. This way, you are telling the button to call playGame('rock') only when it is clicked -->
+                   <!-- By using an arrow function or a named function, you are delaying the execution of playGame('rock') until the button is actually clicked. This means the button knows what to do when it is clicked. -->
+
+                   <!-- BIG DISCOVERY -->
+                    <!-- Without the event parameter, you cannot access properties like event.key, which means you won't know which key was pressed.
+ -->
+                    <!-- The conditional statements that check for specific keys (like 'r', 'p', or 's') would not be able to execute, as there would be no way to evaluate the key pressed. -->
+
+                          <!--filter() creates an array , and it returns true if the condition is met which gets put in the new array  and returns false if it is not met which gets left out of the new array -->
+                    <!-- filter() is a method of an array. it works similar to forEach () as it requires parameters to  loop through an array and makes a new array with the items that meet the condition. -->
+                     <!-- eg. [1,-1,3].filter((value,index) =>{
+                      if (value > 0){
+                            return true}else{
+                            return false}
+                            })  this will return [1,3] -->
+
+                    <!-- map() creates an array, whatever is returned gets added to the new array -->
+                     <!-- map() turns an array into a new array depending on the return value -->
+                     <!-- map() is a method of an array. it works similar to forEach() as it requires parameters to loop through an array -->
+                      <!-- eg [1,1,3].map((value,index) =>{
+                       return value* 2}) returns [2,2,6] -->
+                       <!-- the shortcut for the code above is [1,1,3].map(value => value*2) -->
+
+                       <!-- Data attribute is just an html attribute that starts with data- and helps us attach any information to an html element eg. data-product-name = "product name" -->
+                        <!-- dataset is a property of an html element that allows us to access the data attributes that are attached to the element.ie. to get the value of the data-product-name attribute, we reach into the element, then into the dataset, then into the data-product-name property eg. console.log(button.dataset) will reveal an OBJECT with the DATA ATTRIBUTES of the button AND console.log(button.dataset.productName) will reveal the value of the data-product-name attribute;-->
+
+
+                        <!-- MODULES -->
+                         <!-- Modules are better ways to organize your codes. -->
+                          <!-- Having scripts stacked on top of each other can be confusing and hard to manage since it acts like a big pile of code. its very difficult to ascertain what variables have already been declared in what scripts and what has not. its also easy to commit naming conflicts since you are working with a big pile of code. -->
+                           <!-- A module contains a set of related functions and variables in a file,that can be used by other scripts and not cause naming conflicts with anything outside the file. -->
+                            <!-- Syntax for creating a module. 1. create a file 2.Don't load the file with <script>. NB: Any variable or function created within the file stays in the file -->
+                              <!-- To get a variable/function outside a file, 1. You use the type = "module" attribute on the script which would be accepting the importation. 2. You use the export statement to export the variable/function from the file you wish to import from  3. You use the import statement to import the variable/function on the script that is accepting the importation -->
+                               <!-- type = "module" attribute makes the script a module.ie. it lets this file get variables /functions from other files -->
+                                <!-- export const cart = [...]; exports the cart variable from the file -->
+                                 <!-- import {cart} from '../data/cart.js'; this imports the cart variable from the cart.js file . the "." gets us out of the current folder/file into the parent folder/file -->
+                                  <!-- With modules, you have to put all import files at the top of the code editor  -->
+                                   <!-- We need to use live server to make our modules work -->
+                                    <!-- One major benefit of using modules is that you don't have to be concerned about the order of our other script files as we'd just be importing the variables that are only important to us -->
+
+
+                                  <!-- EXTERNAL LIBRARY -->
+                                   <!-- External library is a code outside of our project -->
+                                    <!-- We can load an external library by using a script tag with its src being the location of the library. If its necessary to use an external library, its script tag should be on top of all other script tags -->
+                                     <!-- a default export is another way of export when we want to export only one thing from a file. -->
+                                      <!-- eg. export default formatCurrency. in the module file, you import without the parenthesis -->
+                                       <!-- NB: dayjs() only exports one function "dayjs()" so we can use the default export to import it -->
+                                        <!-- ESM version of any external library is that version that works with Javascript modules. it stands for EcmaScript. -->
+                                         <!-- ESM version for dayjs() is dayjs and not dayjs() -->
+
+                                         <!-- The technique we used where when we update our data in javascript, we regenerate the html for the date is called MVC ie . Model View Controller -->
+                                          <!-- in MVC, we split our code into three parts: Model, View, and Controller . Model = saves and manages the data(cart.js,products.js,deliveryOptions.js). View =takes the data and displays it on the page(checkout.js,amazon.js). Controller = runs some code when we interact with the page eg(addEventlisteners which makes the page interactive when we click something on the page) -->
+                                           <!-- MVC interact with each other ie. View takes the model/data and generates HTML which it previews. Controller runs when the display is interacted with,then the controller updates the model/data which necessitates an update of the html/view to fit the new data -->
+
+                                           <!-- NB: in the file path when importing, ../ means go out of your parent directory while ./ means to get out of your current directory into the parent directory -->
+
+
+                                           <!-- AUTOMATED TESTING -->
+                                            <!-- Using code to test code. its useful to use automated testing other than manual testing which requires opening the browser to ascertain if the code is working as expected. Manual testing takes a lot of time and is prone to human error. -->
+                                             <!-- There are two types of test cases. 1. basic test case: it checks if your code is working. 2.Edge cases: Check with values that are tricky -->
+                                              <!-- in test cases, make sure to have both basic and edge test cases -->
+                                               <!-- Testing Framework is just an external library that helps us write code easier eg. jasmine,mocha stc. in jasmine "spec" is the same as "test"  -->
+                                                <!-- integration testing is when we test how different parts of our code interact with each other. -->
+
+                                               <!-- JASMINE FRAMEWORK -->
+                                                <!-- in jasmine , we create a test suite with a function called describe(). it has two parameters. 1. the name of the suite in strings. 2. a function that contains the test cases. in that function , we use it() to create a test case. however, it() has two parameters being 1. the name of the test case in strings. 2. a function that contains the test case. -->
+                                                 <!-- in the test case function, we use expect() to check if the result of the code is what we expect.expect() creates an object and has many methods like toBe(), toEqual(), toContain(),toHaveBeenUsed() etc. -->
+                                                  <!-- FLAKY TEST: a test that sometimes passes and sometimes fails even if we don't change the code -->
+                                                   <!-- Mocks: a mock lets us replace a method with a fake version and we can use the fake version however we want -->
+                                                    <!-- to mock, we use spyOn(). spyOn() takes two parameters. 1. the object it wishes to  mock (eg.localStorage) and the method it wants to mock,in quotes (eg 'getItem').This clones the localStorage.getItem.--> <!--spyOn() use properties like ".and" which in turn has properties like "callFake". in all eg. spyOn(localStorage,'getItem').and.callFake(() => {return []});. This makes the cloned localStorage.getItem return whatever gets put in the curly bracket and in this instance an empty array -->
+                                                     <!-- sypOn() has a feature that records every time a method is used.ie.spyOn().toHaveBeenCalledTimes()-->
+
+                                                     <!-- When we are testing a page, there are two things we need to consider. 1.How the page looks 2.How the page behaves -->
+                                                      <!-- With regards to how the page looks, we have to do the basic test first.ie.testing what the function does -->
+                                                       <!-- then we get to the other functionalities of function  -->
+
+                                                      <!-- BIG DISCOVERY: You can use code to click an element and this is done by getting the element first into javascript by DOM, then using the "click()" method on it -->
+
+                                                      <!-- OBJECT ORIENTED PROGRAMMING (OOP) -->
+                                                       <!-- It is just another way of programming/writing code. It is basically organizing our code into object -->
+                                                        <!-- in procedural programming, we organize our codes into functions however in OOP, we organize our codes into objects-->
+                                                         <!-- OOP replicates the real world. ie, in the amazon project, we use OOP to replicate the cart in the real world and the events thats likely to modify it eg. adding or removing from the cart, changing your delivery option etc-->
+                                                          <!-- OOP makes it easy to create multiple objects -->
+                                                           <!-- NB: in OOP, the naming convention for things that create or generate objects are always in PascalCase -->
+                                                            <!-- we can use function to create/generate multiple objects -->
+
+                                                        <!-- BIG DISCOVERY: let cart; means cart = undefined; -->
+                                                         <!-- ALSO: "this" is a feature of javascript that gives us the object which contains the function so it doesn't matter if we have change of object name's later, "this" would always capture the object. we use "this" inside the object not outside -->
+
+                                                         <!-- OOP has a feature specifically for generation objects. its called "class". A class is an object generator -->
+                                                          <!-- in OOP, class uses a similar syntax as a function(when calling it) however, it has "new" in front of it -->
+                                                           <!-- we create a class by eg. class Cart {} which we load it up with properties and methods and every time we create/generate an object using the class.eg. new Cart (), we get access to every property and method available in the class -->
+                                                            <!-- an object generated from a class is known as an "instance" of the class.if eg. businessCart is an object from a class called Cart, then console.log(businessCart instanceof Cart); will display true in the console -->
+                                                             <!-- a constructor lets us run a setup code after creating an object. it helps us put the the setup code inside the class which makes our code look cleaner -->
+                                                              <!-- One important feature of using the constructor is that once you generate an object,it runs automatically to generate the object -->
+                                                               <!-- NB: the constructor of a class can hold a parameter and its object can access that through the "()" of the created object eg, cart = new Cart (value) -->
+                                                                <!-- Classes has features which makes a property/method private ie. it can only be accesses inside the class.This feature is "#". You put "#" in-front of any property/method and it becomes private -->
+
+                                                                <!-- CONVERTING AN OBJECT INTO A CLASS -->
+                                                                 <!--Eg.In products.js, instead of using the objects in the array, we'd be converting all the ordinary objects into a class  -->
+                                                                 <!-- NB: map() is a method of an array which loops through the array and for each value, it runs a function. Also,Map() produces a new array and whatever gets "return" gets added to the new array-->
+
+                                                                 <!-- INHERITANCE -->
+                                                                  <!-- Inheritance lets us reuse code between classes -->
+                                                                   <!-- To use inheritance, after the class name,we state "extends" and the class we wish to inherit from. this will make the child inherit all the properties and methods of the parent  -->
+                                                                    <!-- We use inheritance when we have one class which is a more specific typeof another class and in order to avoid duplication of one class' properties and methods, we use inheritance so a class could possess the properties an another another class -->
+                                                                     <!-- We call the exporting class "Parent class" and the importing class "child class" -->
+                                                                      <!-- Even though the child inherits the properties and methods of the Parent, in the constructor, we need to set these values. However we can bypass that by declaring the constructor in the parent class. We do this by calling a special feature of classes called "super(parameter)"."super(parameter)" basically calls the constructor of the parent class -->
+                                                                       <!-- If we fail to set up a constructor in the child,it automatically uses that of the parent -->
+
+                                                                       <!-- BUILT IN CLASSES -->
+                                                                        <!-- Built in classes are classes that are provided by the language eg.Date() -->
+                                                                        <!-- new Date()- generates an object that represents the current date -->
+                                                                         <!-- dayjs() is preferred to this because of the extra features it possess -->
+                                                                        <!-- NB:Global Scope: When you are in the global scope (i.e., not inside any function or object), "this" refers to the global object. In a browser environment, the global object is the window. In Node.js, it is global.In the console,"this" will return as undefined. the same applies to the second example as "this" will not reference "object2" but the global variable which doesn't have a variable "a" defined.Same for eg 4-->
+                                                                         <!-- console.log(this)= undefined; -->
+
+                                                                          <!-- const object2 = {
+                                                                          a:2,
+                                                                          b:this.a
+                                                                        }
+                                                                          console.log(object2.b)= undefined;"this" points a global variable which doesn't have a defined a."this" has to be in a function or method inside a class for it to work-->
+
+                                                                          <!-- const object3 = {
+                                                                          method:() => {
+                                                                            console.log(this);
+                                                                          }
+                                                                          }
+                                                                          object3.method()= undefined; "this" ideally should point to object3 but it'll point to the object outside which is the global class in this case.However, in this example eg
+                                                                          const object3 ={
+                                                                          method(){
+                                                                            console.log(this);
+                                                                          }
+
+                                                                          [1,2,3].forEach(() => {
+                                                                            console.log(this);
+                                                                          });
+                                                                          both "this" points to object3
+                                                                          } .if the arrow function was a normal function,"this" would act just like it was independently created without a class and hence would be undefined-->
+
+                                                                          <!-- function logThis(){
+                                                                          console.log(this)
+                                                                          }
+                                                                          logThis()= undefined. the function is not in any object so "this" points to the global variable -->
+                                                                           <!-- with regards to the last eg.4 "this" has a special method ".call()" which can help change the value of "this" to any value. eg. logThis.call('hello') returns logThis() to the string 'hello' -->
+
+                                                                           <!-- REACT -->
+                                                                            <!-- React is an open source library for building user interfaces.React is a javaScript library not a framework and its sole purpose is to help build user interfaces -->
+
+                                                                             <!-- NB:A framework is a structured platform or set of tools that provides a foundation for building software applications. It offers a predefined way to organize code, manage dependencies, and implement common functionalities, allowing developers to focus on the unique aspects of their applications rather than reinventing the wheel for every project.eg.frontend frameworks eg. React,Angular,Vue. Backend frameworks eg.Node.js,Python.Testing frameworks eg.Mocha,jasmine -->
+                                                                              <!-- rules to creating a react app. 1. copy syntax from "vite.dev" and run it in the terminal 2.follow the process and create the react app 3. open the folder through vs code and open terminal 4. enter "npm install" then "npm run dev"-->
+                                                                               <!-- if you close your terminal or browser and you want to link your react to the browser, you need to use "npm run dev"-->
+                                                                                <!--  The React app is injected into this HTML file(index.html), typically within a <div> with the ID of root. -->
+                                                                                  <!-- Purpose of main.jsx
+
+Application Entry Point: The main.jsx file is the first JavaScript file that runs when your React application starts. It is responsible for rendering the root component of your application.
+
+Rendering the App: It typically uses the ReactDOM.render() method to render the main component (often called App) into a specific DOM element, usually a <div> with the ID of root in the index.html file.
+
+ -->
+  <!-- ReactDOM.render(): This method takes two arguments: the component to render (in this case, <App />) and the DOM element where it should be rendered (document.getElementById('root')).
+Wrapping the <App /> component in <React.StrictMode> is optional but recommended during development. It helps identify potential problems in your application. -->
+  <!-- App.jsx -  typically serves as the main component of your application. It is where you define the structure and behavior of your app's user interface. It serves as the root component that is rendered in the main.js file. It defines the overall layout and structure of your application, including headers, footers, and main content areas -->
+   <!-- The className attribute is used to apply CSS styles -->
+    <!-- The App component is exported as the default export, allowing it to be imported in other files (like main.js). -->
+
+    <!-- Difference between index.css and App.css. ./index.css: A CSS file for global styles.eg.header tags,anchor tag,body,etc ./App.css: A CSS file for styles specific to the App component.eg. header component.main component,footer component -->
+     <!-- In react,a component refers to a part of the user interface -->
+      <!-- App is the component that contains all other components. It is also known as the root component -->
+       <!-- components are also reusable.ie. they can be used with different properties to display different information.Component codes are usually placed in javascript files eg. App component is placed in the App.jsx file so basically, components are codes inside a js file -->
+        <!-- React has two types of components i.e. Stateless functional Component and Stateful class component  -->
+
+         <!-- Functional Components:are a type of React component that are defined as JavaScript functions. They are used to render UI elements and can accept props (properties) as arguments. Unlike class components, stateless functional components do not manage their own state or lifecycle methods. Instead, they focus solely on rendering the UI based on the props they receive.Basically, functional components optionally receive inputs of properties(props) and return html that describes the UI. Now,you can use the useState and useEffect hooks to add state and lifecycle-like behavior to functional components -->
+
+          <!-- 
+         import React from 'react';
+
+// A functional component that receives props
+const Greeting = (props) => {
+  return (
+    <div>
+      <h1>Hello, {props.name}!</h1>
+    </div>
+  );
+};
+
+// Usage of the Greeting component
+const App = () => {
+  return (
+    <div>
+      <Greeting name="Alice" />
+      <Greeting name="Bob" />
+    </div>
+  );
+};
+
+export default App;
+          -->
+<!-- BREAKDOWN OF THE EXAMPLE -->
+ <!-- Component Definition: The Greeting component is defined as a function that takes props as an argument. It returns JSX that renders a greeting message.
+
+Props: The name prop is passed to the Greeting component when it is used in the App component. The component uses this prop to display a personalized greeting.
+
+Usage: The Greeting component is used twice in the App component, demonstrating how it can be reused with different props -->
+<!-- NB:rafce creates a default functional component set up -->
+
+<!-- Here’s a simple example of managing state in a functional component using the useState hook: -->
+ <!-- 
+import React, { useState } from 'react';
+
+const Counter = () => {
+  // Initializing state with useState
+  const [count, setCount] = useState(0);
+
+  // Function to handle button click
+  const increment = () => {
+    setCount(count + 1); // Updating state
+  };
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={increment}>Click me</button>
+    </div>
+  );
+};
+
+export default Counter;
+ -->
+
+<!--CLASS COMPONENTS: They are regular ES6 classes that "extends" the "component" class from the React library.They must contain a "render method" which in turn returns html/jsx.A class component can maintain a private internal state.ie. it can maintain some information which is private to that component and use that information to describe the user interface -->
+<!-- 
+import React, { Component } from 'react';
+
+// A class component that manages its own state
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    // Initializing state
+    this.state = {
+      count: 0,
+    };
+  }
+
+  // Method to increment the count
+  increment = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  // Lifecycle method that runs after the component mounts
+  componentDidMount() {
+    console.log('Counter component mounted');
+  }
+
+  // Lifecycle method that runs before the component unmounts
+  componentWillUnmount() {
+    console.log('Counter component will unmount');
+  }
+
+  // Render method
+  render() {
+    return (
+      <div>
+        <p>You clicked {this.state.count} times</p>
+        <button onClick={this.increment}>Click me</button>
+      </div>
+    );
+  }
+}
+
+// Usage of the Counter component
+const App = () => {
+  return (
+    <div>
+      <Counter />
+    </div>
+  );
+};
+
+export default App;
+-->
+<!-- BREAKDOWN OF EXAMPLE -->
+ <!-- 
+Component Definition: The Counter component is defined as a class that extends React.Component.
+
+Constructor: The constructor initializes the component's state using this.state. The super(props) call is necessary to access this.props in the constructor.
+
+State Management: The component has a count state that tracks the number of times the button has been clicked.
+
+Increment Method: The increment method updates the state using this.setState(), which triggers a re-render of the component.
+
+Lifecycle Methods:
+
+componentDidMount(): This method is called after the component is mounted to the DOM. It can be used for side effects like fetching data.
+componentWillUnmount(): This method is called just before the component is removed from the DOM. It can be used for cleanup tasks.
+Render Method: The render() method returns the JSX that defines the UI of the component.
+ -->
+<!-- PROPS(PROPERTIES):It is the option of input that your component can accept.It also allows your component to be dynamic.To specify props for a component (in App) we specify them as attributes.-->
+ <!-- Sometimes you might not know as to what content is being passed in a component (in App) but you'd want the component file to render such content. We can do that by specify the content within the closing and opening tag of the component (in app) and retrieving it in the props object made available in the component file using {props.children} -->
+ <!-- 
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <div>
+        <Greet name="John" heroName= "Batman">
+          <p>hello suckers,this is children props</p>
+        </Greet>
+      </div>
+      
+    </>
+  )
+}
+
+export default App
+
+const Greet = (props) => {
+return(
+  <div>
+    <h1>Hello {props.name} a.k.a,{props.heroName}</h1>
+    {props.children}
+  </div>
+)
+}
+
+
+export default Greet;
+ -->
+ <!-- NB: a jsx wrapper should only contain on element.This means that when you return JSX from a component, all the elements must be enclosed within a single parent element. -->
+  <!-- Unlike functional components where we specify the props with the "props" parameter, we specify the it with "this.props" and it it reserved for class components  -->
+   <!--  When we say that props are immutable, it means that once a component receives its props, it cannot modify them. ie modifying a props property in a component file will result in an error -->
+     
+   <!--DIFFERENCE BETWEEN PROPS AND STATE  -->
+   <!-- Props get passed on to component whiles state exist in the component.Also, props are like function parameters while state behave like methods declared in a function body.again,props are immutable whiles states can be changed.We access props in function components as "props" and in class components as "this .props". We access state in functional components as useState-Hook and in class components as this.state-->
+    <!-- a state is an object that is privately maintained in a component.A state can influence what is rendered in a browser, and finally a state can be changed within the component -->
+                                                                           
+                                                                      
+
+                                                       
 
 
 
