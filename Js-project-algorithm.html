@@ -101,5 +101,280 @@
                                            <!-- CHANGING FROM ONCLICK TO ADD EVENT LISTENERS -->
                                           <!-- the goal here is to change the buttons from onclick to addEventListener().  -->
                                         <!-- we give each button a class, get them into javascript and event listeners to all. in the second condition for the addEvenListener(), the addTodo() should be inside a function so that "after click", then the function runs. -->
-                                         <!-- CHANNGING DELETE ONCLICK TO ADD EVENT LISTENER -->
+                                         <!-- CHANGING DELETE ONCLICK TO ADD EVENT LISTENER -->
                                           <!-- we add a class to the delete button and call it in javascript. remember to use document.querySelectorAll. we loop through it and add event listeners to all. remember to add the index as a parameter so the delete button can identify which item it should remove  -->
+                                           <!-- remove the onclick attribute from the html -->
+
+           
+                                           <!-- AMAZON PROJECT -->
+                                            <!-- We start with the amazon.html file. the goal here is to display the rest of the  items on the page.  in the amazon.html file, we could copy the code of one product, paste as many  and make changes to it to get the rest of the products,however, thats cumbersome. the best way is to generate the html for the products os when we want to create a new product, we just provide the properties of the new product and the item would be created   -->
+                                             <!-- we create an amazon.js file for this -->
+                                              <!-- we follow the 3 principles of javascript. 1. save the data 2.generate the html 3. make it interactive -->
+                                               <!-- number 1, the items we want displayed has identifiers like name,image,rating,price etc so we put it in an object to represent an item and we put the object in an array  since it'll be among other similar items . const products = [{name:..., image:...}]. the products array constitutes a list of products. We usually use a combination od object and arrays to create a data structure -->
+                                                <!--2. the next step is to loop through the array to generate the html. we generate the html by copying the html for one of the products in amazon.html -->
+                                                 <!-- since we don't want to be displaying the same html for each product, we use ${} to inset the properties of the items so it displays differently for each item -->
+                                                  <!-- the next move is to combine all the html (productsHTML) and put it on the page (using DOM). we do this by giving the parent div of the products html in amazon.js a class name and use it in js -->
+                                                   <!-- Check the price on the page and add ".toFixed(2)" so it rounds to two decimal places -->
+                                                    <!-- since we have a products.js file, we link it to the amazon.html and delete the sample products array we created to generate the html -->
+                                                     <!--3. the next step is to make the add to cart button interactive  -->
+                                                     <!-- we get the button into javascript,we select document.querySelectorAll() and we add event listeners to all the buttons -->
+                                                      <!-- the idea is when we click on the button we add the item's id and quantity to the cart which possesses either nothing/ items with name and quantity -->
+                                                       <!-- lets create a cart.js file for that and link it to the html -->
+                                                        <!-- we create the cart as a array and it receives item (objects) id and quantity when we click on the add-to-cart button  -->
+                                                         <!-- for the code to identify which add-to-cart button has been clicked, we add "data-product-id = ${product.id}" to the html, we retrieve it through button.dateset.productId and we save it and productId. this all happens in the addEventListener -->
+                                                          <!-- in the addEventListener again, we call cart.push({
+                                                          productId:productId
+                                                          quantity:1 
+                                                          }) so when we click on an item's add-to-cart, it pushes its id and a quantity of one to the cart assuming the cat doesn't have the item already -->
+                                                           <!-- assuming we have the item already in the cart,we check if it's true and update its quantity by 1. if not add the item's id and give it a quantity of 1 -->
+                                                            <!-- we loop through the cart and if the item's id already exist, we put the item in a different basket (variable) called matchingItem. NB: matchingItem holds the matching item -->
+                                                             <!-- if matchingItem is true, we increase the matchingItem's quantity by 1 "else", we cart.push({
+                                                          productId:productId
+                                                          quantity:1 
+                                                          })-->
+                                                          <!-- CART QUANTITY -->
+                                                          <!-- next is to mke the top right cart quantity interactive. -->
+                                                           <!-- the first thing is to calculate the quantity and display on the page -->
+                                                            <!-- we do this by looping through the cart and adding all the quantities of the item's (in a cartQuantity variable) then finally displaying it on the page -->
+                                                             <!-- we display it by using DOM -->
+
+                                                             <!-- now, we can create a function addTocCart() for the codes that add to the cart and updateQuantity() for those that update the quantity -->
+
+
+                                                             <!-- CHECKOUT.HTML -->
+                                                              <!-- the first goal here is to create the orderSummary. we need to generate the html for the order section of the page-->
+                                                               <!-- lets assume the cart has some item id and quantity we can use to generate the html. the items we want displayed jas images,name, price,rating etc. so we need to use the cart's id to retrieve all the other properties required on the page -->
+                                                                <!-- now in checkout.js , we import the car and loop through to generate the html however we most suse the cart's id to retrieve all the other properties -->
+                                                                 <!-- we save the cart's id as productId first, we import products , we loop through products and compare "if" the product's id equals the cart's id (productId). if it does we put it in a basket(variable) called matchingProduct -->
+                                                                  <!-- we use the matchingProduct to update the html -->
+                                                                   <!-- we use DOM to put the htl on the page -->
+
+                                                                   <!-- CREATING MONEY.JS -->
+                                                                    <!-- we create a utils folder and within a money.js file. then we create the formatCurrency () to use the code -->
+
+                                                                    <!-- CHANGING NAME PROPERTY OF CHECKBOX TO THE ITEM'S ID -->
+                                                                     <!-- we change the value of the name property of the checkbox to include the item's id.   -->
+                                                                      <!-- MAKING DELETE INTERACTIVE -->
+                                                                       <!-- first, we need to get the delete links into javascript with (document.querySelectorAll),loop through it, and add event listeners to all-->
+                                                                        <!-- we'd need to specify each delete link with its id so it can identify which item we want removed -->
+                                                                         <!-- the two steps we need for the interactive delete is that it should remove the item from the cart, it should remove it from the page -->
+                                                                          <!-- the logic behind removing from cart is this, "if" a cart item's id (one we want removed) is not equal to any cart item in the cart, we we move the non-identical items to a different cart and leave those it matches. our new cart will be the one with the non-identical items -->
+                                                                           <!-- its best to put all of the code in a removeFromCart() and put it inside the cart.js file -->
+
+                                                                           <!-- when we click on delete we need to remove it from the page -->
+                                                                            <!-- we do this by getting the page into javascript. we need to first specify the item on the page by its productId. after getting it in the DOM we use the Dom property of ".remove()" to clear it from the page -->
+                                                                             <!-- SAVING OUR CART TO LOCAL STORAGE -->
+                                                                              <!-- we should put out localStorage into a function saveToStorage() so we can apply it to certain sections of our code  -->
+
+                                                                              <!-- MAKING DELIVERY OPTIONS INTERACTIVE -->
+                                                                               <!-- To do this, we need to to get the external day.js library into our checkout file and use that to make the necessary adjustment -->
+                                                                                <!-- getting day.js we put its url in a script tag in out checkout.html file -->
+                                                                                 <!-- its best to use the ESM version of the dayjs() as it works with modules -->
+                                                                                  <!-- getting the ESM version of dayjs(), we import the file with the "" being the url of the ESM file, in tye import line, dayjs doesn't need to be in a bracket -->
+                                                                                 <!-- to set up the delivery options, we need to use dayjs() to get today's date, use it to calculate the delivery days options and display it. const today =dayjs(). this saves today's date in a variable today -->
+                                                                                  <!-- we use today.add(7, 'days') to add seven days to today's date. const deliveryDate = today.add(7, 'days'); we saved in a variable deliveryDate  -->
+                                                                                   <!-- we use deliveryDate.format('dddd,MMMM D') to create a certain date format  -->
+
+                                                                                   <!-- just like we did for the orderSummary, we need to assume each of the cart items has delivery id's which point to the object that has all the delivery details. so we's use the delivery id to get the other delivery details  -->
+                                                                                    <!-- we create a deliveryOptions.js file which contains an array, deliveryOptions, which contains the details of a delivery -->
+                                                                                     <!-- after, we need to import the deliveryOptions file, loop through it to generate the delivery options html, and put it on the page -->
+                                                                                      <!-- we create a function deliveryOptionsHTML to do this job -->
+                                                                                       <!-- after writing down the html, we use dayjs() and its properties to make the necessary adjustments to the html. we then combine and put it on the page -->
+                                                                                        <!-- we can use the ternary operator is figure out the price to be displayed on the page. either 'FREE' : ${...} -->
+                                                                                        <!-- we combine the html and after we RETURN so wherever the function is called, it'll be equal to the html returned -->
+                                                                                         <!-- we then delete the html for the deliveryOption in pur cartSummaryHTML and replace it with the function -->
+                                                                                          <!-- we want to check the cartItems' whose delivery id matches the id of the deliveryOptions -->
+                                                                                           <!-- we could use ternary operator for this too."checked" : ''; -->
+
+                                                                                           <!-- CHANGING THE DELIVERY DATE TITLE TO REFLECT OUR CHOSEN DELIVERY DATE -->
+                                                                                            <!-- we save the cart item's deliverOptionId -->
+                                                                                            <!-- we have to loop through the deliveryOptions array and if the cart item's deliveryOptionId equals the deliveryOptions id, we get a variable (deliveryOption) to host the deliveryOptions. just like how we did for matchingProduct -->
+                                                                                             <!--after getting the deliveryOption (contains the other delivery details), we use dayjs() to calculate the actual date to be displayed   -->
+                                                                                             <!-- we use the ${dateString} to substitute for the date displayed -->
+
+                                                                                             <!-- UPDATING THE CART'S DELIVERY OPTION UPON OUR CHOICE -->
+                                                                                              <!-- we create a function updateDeliveryOption() in the cart for this as its related to updating the cart -->
+                                                                                               <!--We'd need to use the productId to ascertain the cart item we wish to make changes to. after that, we equate the "matchingItem's" deliveryOptionId to the deliveryOptionId of our choice -->
+                                                                                               <!-- REMINDER: addToCart() has a function for finding the cartItem using productId -->
+                                                                                               <!-- NB: we pass the productId and deliveryOptionId(our choice) as parameters to the function. save to storage after -->
+                                                                                                <!-- we need to add event-listeners to all the delivery options and call the updateDeliveryOptions()-->
+                                                                                                 <!-- However, the function needs two parameters ie. productId and deliveryOptionId,which we can get by using data attributes to attach them to the delivery html and retrieve it -->
+                                                                                                  <!-- after this stage, -->
+
+                                                                                                 <!-- UPDATING THE DELIVERY OPTION TITLE AUTOMATICALLY AFTER CHANGING OUT DELIVERY CHOICE -->
+                                                                                                  <!-- Ideally we should use DOM and get the title in javascript however, we'd have to do it for every button so the best way is to regenerate the entire html after changing the delivery option (data) -->
+                                                                                                   <!-- we can put the entire  content in a function renderOrderSummary() and call t when we update the delivery Option -->
+                                                                                                    <!-- we create an orderSummary file to keep this. we change the imports directory,we export it to th checkout.js since its the file linked to the checkout.html -->
+
+                                                                                                    <!-- PAYMENT SUMMARY -->
+                                                                                                     <!-- we create a paymentOrderSummary file for the payment section. -->
+                                                                                                      <!-- we create a paymentOrderSummary() to keep all the codes so it can be exported -->
+                                                                                                       <!-- we start with saving the data.here, it means calculation the figures on the board which would displayed -->
+                                                                                                        <!-- to calculate the cost of the items displayed, we'd need to multiply the cost of the items by the quantity and add them all together -->
+                                                                                                         <!-- Hence, we loop through the cart for this calculation -->
+                                                                                                          <!-- looping through the cart we notice the cart only has the quantity however, we can use its id to get the product;s other details like price.NB: we have a code for that which saves into matchingProduct, so we can use that.  -->
+
+                                                                                                          <!-- MAKING MATCHING PRODUCT A FUNCTION -->
+                                                                                                           <!-- convert that run of code into a function,getProduct() and return the matching product so when we call the function, its equal to the matchingProduct and save it as matchingProduct -->
+
+                                                                                                           <!-- CONTINUATION OF PAYMENT SUMMARY -->
+                                                                                                            <!-- In our payment summary function, lopping through the cart, we call the getProduct() and save it as product. we then calculate the cost of each item by product.priceCents * cartItem.quantity. we save a variable(productPriceCents) and add all the cost -->
+                                                                                                             <!-- the next calculation is the shipping cost. we need to add all the shipping cost of all the item. -->
+                                                                                                              <!-- Hence, we loop through the cart for this calculation -->
+                                                                                                               <!-- looping through the cart we notice the cart only has the deliveryOptionId however, we can use its id to get the delivery details like shipping cost.NB: we have a code for that which saves into matchingProduct, so we can use that.  -->
+
+                                                                                                               <!-- MAKING MATCHING DELIVERY iD A FUNCTION -->
+                                                                                                               <!-- convert that run of code into a function,getDeliveryOption() and return the deliveryOption so when we call the function, its equal to the deliveryOption and save it as deliveryOption -->
+
+                                                                                                               <!-- CONTINUATION OF PAYMENT SUMMARY -->
+                                                                                                                <!-- n our payment summary function, lopping through the cart, we call the getDeliveryOption(), and save it as deliveryOption, we save a variable shippingPriceCents and add all the deliveryOption.priceCents into into -->
+                                                                                                                 <!-- next we calculate the total before tax ie.totalBeforeTaxCents. which equals productPriceCents + shippingPriceCents -->
+                                                                                                                  <!-- next, taxCents = totalBeforeTaxCents * 0.1 -->
+                                                                                                                   <!-- next totalCents = totalBeforeTaxCents + taxCents -->
+
+            <!-- the next step is to generate the html-->
+             <!-- we reach into the checkout.html, copy the code or the payment summary and generate it in javascript -->
+              <!-- we then give its container a js class and put it on the page -->
+               <!-- MAKING PAYMENT SUMMARY INTERACTIVE -->
+               <!-- we need to make the payment summary interactive. so when we click on the delete link, we expect the payment summary to be updated. here, we import payment summary into order summary an d when we click on delete, we need to generate the html for the payment summary so it update automatically -->
+                <!-- when we change delivery option of an item, the payment summary should update accordingly. we do this by regenerating the payment html ie.renderPaymentSummary() after clicking on a delivery option. NB: we already have a code of block for changing delivery option -->
+
+                <!-- OOPs -->
+                 <!-- we are first converting the cart.js into cart-oop. we create a file cart-oop.js for that. here, the goal is to group all the data and functions into an object called cart  -->
+                  <!-- we change the first cart to cartItems -->
+                   <!-- to access the methods and properties, we need to site the object first and the property.ie cart.cartItems in this scenario-->
+                    <!-- we can use "this" to replace the object name so it references the object even when we change the name -->
+                     <!-- we can use the object to even add to the cart. we call cart.addToCart('productId') and if we console.log the cart, it'll show it has increased -->
+                      <!-- the benefit of using OOP is that you can create multiple objects. we can copy and paste our objects as many times as we like.eg businessCart = {} -->
+                       <!-- USING FUNCTIONS TO GENERATE OBJECTS -->
+                       <!-- instead of copy pasting the entire object t create a new object, we can use functions to create new objects -->
+                        <!-- one advise using OOP is to use PascalCase to things that generate objects -->
+                         <!-- we can create a function that hosts the object we want to copy so when we call the function, a new object is created -->
+                          <!-- DISCLAIMER: Be aware to change the localStorage name so it doesn't fuse with that of cart.js -->
+
+                          <!-- USING CLASS TO GENERATE OBJECTS -->
+                           <!-- Class is basically designed to generate objects -->
+                            <!-- we create a class eg. class Cart {} and we put in properties and methods -->
+                             <!-- with class the input syntax is slightly  different eg. class Cart{cart = undefined;} instead of an object Cart = {cart:undefined,} -->
+                              <!-- after creating the class, i changed the name of the localStorage to localStorageKey and used it as a property with a given value,undefined -->
+                               <!-- /we create a new object by new Cart() ie. cart = new Cart() -->
+                                <!-- after that, we used cart.localStorageKey to set up the property for the localStorageKey with respect to the new object created ie. cart  -->
+                                 <!-- NB; cart.localStorageKey is a set-up code and constructor enables us put the code in the class which makes our codes cleaner -->
+                                  <!-- we can pass the value of the cart.localStorageKey as a parameter withing the constructor and access it within through "()" of the new object created so that with each new object created, the object can substitute its own localStorageKey-->
+
+                                  <!-- CONVERTING OUR PRODUCTS INTO A CLASS -->
+                                   <!--  In product.js we can use a lass to generate all the objects/products in a the products array-->
+                                     <!-- we create a Product class ie. class Product {} -->
+                                      <!-- each object/product needs to have certain properties like name.image,priceCents etc so we include them in the Product class so when we create an object it can possess it automatically . we initially set the properties as undefined-->
+                                       <!-- when we create a new object say product1 = new Product (),  we need to set up the code for the properties product1 as product1.id = "ghygfhhh". product1.name = "basketball" etc. and notice we'd have to do this for every new object/product we create which would ne too much work. What we can do is set up a constructor with a parameter say "productDetails" and for every new object/product, pass the details of the object through the "()" of the new object to setup the properties. when we console.log() the new product, it should display the new product with the properties -->
+                                        <!-- with respect to the products array, we cal loop through it using "map()" and for each object, create a new object whiles already saving it in a variable products.ie. const products = [].map((productDetails) => {
+                                         new Product(productDetails)
+                                         }); . the reason for map() is that it has  special feature which is , it creates an array and whatever gets returned gets put in the new array. so after the looping through the products array, we can return the function so it gets pit in  new array saved as products-->
+                                         <!-- we created a new method getPrice() which we used to substitute the html (formatCurrency()) in amazon.js and orderSummary.js to make the code cleaner -->
+
+                                         <!-- USING INHERITANCE TO CREATE A SPECIFIC TYPE OF PRODUCTS  -->
+                                          <!-- we create a class clothing which extends the products array. this si so the clothing acn have access to the properties and methods of the products class without having to copy the entire properties and methods of the products class -->
+                                           <!-- Even though the child inherits the properties and methods of the Parent, in the constructor, we need to set these values. However we can bypass that by declaring the constructor in the parent class. We do this by calling a special feature of classes called "super(parameter)"."super(parameter)" basically calls the constructor of the parent class and all the defined attributes in them -->
+                                             <!-- the child class too can have specific attributes exclusive to it -->
+                                              <!-- the next goal is to convert the objects that have the a discriminator attribute in this case,"type = "clothing" into a clothing class -->
+                                               <!-- we go to the already looped products, use the "if" conditions to set up the objects -->
+                                                <!-- we can set up a method "extraInfoHTML() which returns `<a>size chart</a>`" and put it in amazon.js html so it displays for all the clothing class products. Remember so set the extraInfoHTML() for the product class and return ""; so that when the product is not a clothing product, it can still work perfectly -->
+
+                                                <!-- MODAL CODE -->
+                                                 <!-- 
+                                                {/* Dialog for editing user details */}
+      <Dialog open={open} onClose={() => setOpen(false)} className="relative z-10">
+        {/* Backdrop for modal overlay with transition effects */}
+        <DialogBackdrop
+          transition
+          className="fixed inset-0 bg-gray-500/75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[enter]:ease-out data-[leave]:duration-200 data-[leave]:ease-in"
+        />
+        {/* Dialog container for centering content */}
+        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            {/* Dialog panel with transition animations */}
+            <DialogPanel
+              transition
+              className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[enter]:ease-out data-[leave]:duration-200 data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+            >
+              {/* Dialog content */}
+              <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div className="sm:flex sm:items-start">
+                  {/* Warning icon for dialog */}
+                  <div className="mx-auto flex size-12 shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:size-10">
+                    <ExclamationTriangleIcon aria-hidden="true" className="size-6 text-red-600" />
+                  </div>
+                  <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                    {/* Dialog title */}
+                    <DialogTitle as="h3" className="text-base font-semibold text-gray-900">
+                      Edit User
+                    </DialogTitle>
+                    {/* Form for editing user details */}
+                    <div className="mt-4">
+                      <form onSubmit={handleSubmit} className="space-y-6">
+                        {/* Name input field */}
+                        <div>
+                          <label className="block text-sm font-medium text-slate-600">Name</label>
+                          <input
+                            onChange={handleName}
+                            value={name}
+                            name="name"
+                            type="text"
+                            required
+                            className="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition"
+                          />
+                        </div>
+                        {/* Email input field */}
+                        <div>
+                          <label className="block text-sm font-medium text-slate-600">Email</label>
+                          <input
+                            onChange={handleEmail}
+                            value={email}
+                            name="email"
+                            type="email"
+                            required
+                            className="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition"
+                          />
+                        </div>
+                        {/* Submit button for form */}
+                        <button
+                          type="submit"
+                          className="w-full bg-indigo-600 text-white font-medium py-3 rounded-xl hover:bg-indigo-700 shadow-md transition"
+                        >
+                          Save
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Dialog action buttons */}
+              <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                {/* Cancel button to close dialog */}
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                >
+                  Cancel
+                </button>
+              </div>
+            </DialogPanel>
+          </div>
+        </div>
+      </Dialog>
+      
+                                                 -->
+      <!-- MODAL IMPORTS -->
+       <!-- 
+      import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'; // Import Headless UI components for dialog
+import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'; // Import warning icon
+       -->
+
+       <!-- MODAL INSTALLATION IN TERMINAL -->
+        <!-- npm install @headlessui/react@latest -->
+         <!-- npm install @heroicons/react -->
+                                                                                                                    
+
+                                                
+

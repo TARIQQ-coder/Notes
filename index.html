@@ -567,17 +567,21 @@ Setting isAutoPlaying to false: This indicates that the autoplay has stopped. It
 
                           <!--filter() creates an array , and it returns true if the condition is met which gets put in the new array  and returns false if it is not met which gets left out of the new array -->
                     <!-- filter() is a method of an array. it works similar to forEach () as it requires parameters to  loop through an array and makes a new array with the items that meet the condition. -->
-                     <!-- eg. [1,-1,3].filter((value,index) =>{
+                     <!-- eg. console.log([1,-1,3].filter((value,index) =>{
                       if (value > 0){
                             return true}else{
                             return false}
-                            })  this will return [1,3] -->
+                            })).  this will return [1,3]  in the console-->
+
+                            <!-- shortcut is eg. console.log([1,-1,3].filter((value,index) =>{
+                             return value >= 0;
+                            })).  this will return [1,3]  in the console-->  
 
                     <!-- map() creates an array, whatever is returned gets added to the new array -->
                      <!-- map() turns an array into a new array depending on the return value -->
                      <!-- map() is a method of an array. it works similar to forEach() as it requires parameters to loop through an array -->
-                      <!-- eg [1,1,3].map((value,index) =>{
-                       return value* 2}) returns [2,2,6] -->
+                      <!-- eg console.log([1,1,3].map((value,index) =>{
+                       return value* 2})). this returns [2,2,6] in the console -->
                        <!-- the shortcut for the code above is [1,1,3].map(value => value*2) -->
 
                        <!-- Data attribute is just an html attribute that starts with data- and helps us attach any information to an html element eg. data-product-name = "product name" -->
@@ -641,7 +645,7 @@ Setting isAutoPlaying to false: This indicates that the autoplay has stopped. It
                                                          <!-- OOP replicates the real world. ie, in the amazon project, we use OOP to replicate the cart in the real world and the events thats likely to modify it eg. adding or removing from the cart, changing your delivery option etc-->
                                                           <!-- OOP makes it easy to create multiple objects -->
                                                            <!-- NB: in OOP, the naming convention for things that create or generate objects are always in PascalCase -->
-                                                            <!-- we can use function to create/generate multiple objects -->
+                                                            <!-- we can use function to create/generate multiple objects.ie. we can use functions eg. function Cart () to host objects we want to replicate so whenever, we call the function, a new object is created. this is better than copying entire pieces of code and pasting them to create objects -->
 
                                                         <!-- BIG DISCOVERY: let cart; means cart = undefined; -->
                                                          <!-- ALSO: "this" is a feature of javascript that gives us the object which contains the function so it doesn't matter if we have change of object name's later, "this" would always capture the object. we use "this" inside the object not outside -->
@@ -664,7 +668,8 @@ Setting isAutoPlaying to false: This indicates that the autoplay has stopped. It
                                                                    <!-- To use inheritance, after the class name,we state "extends" and the class we wish to inherit from. this will make the child inherit all the properties and methods of the parent  -->
                                                                     <!-- We use inheritance when we have one class which is a more specific typeof another class and in order to avoid duplication of one class' properties and methods, we use inheritance so a class could possess the properties an another another class -->
                                                                      <!-- We call the exporting class "Parent class" and the importing class "child class" -->
-                                                                      <!-- Even though the child inherits the properties and methods of the Parent, in the constructor, we need to set these values. However we can bypass that by declaring the constructor in the parent class. We do this by calling a special feature of classes called "super(parameter)"."super(parameter)" basically calls the constructor of the parent class -->
+                                                                      <!-- Even though the child inherits the properties and methods of the Parent, in the constructor, we need to set these values. However we can bypass that by declaring the constructor in the parent class. We do this by calling a special feature of classes called "super(parameter)"."super(parameter)" basically calls the constructor of the parent class and all the defined attributes in them -->
+                                                                       <!-- the child class too can have specific attributes exclusive to it -->
                                                                        <!-- If we fail to set up a constructor in the child,it automatically uses that of the parent -->
 
                                                                        <!-- BUILT IN CLASSES -->
@@ -685,7 +690,9 @@ Setting isAutoPlaying to false: This indicates that the autoplay has stopped. It
                                                                             console.log(this);
                                                                           }
                                                                           }
-                                                                          object3.method()= undefined; "this" ideally should point to object3 but it'll point to the object outside which is the global class in this case.However, in this example eg
+                                                                          object3.method()= undefined; "this" ideally should point to object3 but it'll point to the object outside which is the global class in this case and this is because,arrow functions do not change the behavior of "this". "this" retains the value it had outside the arrow function. in this context, "this" is points to a global variable like eg.1
+                                                                          
+                                                                          However, in this example eg
                                                                           const object3 ={
                                                                           method(){
                                                                             console.log(this);
@@ -695,13 +702,13 @@ Setting isAutoPlaying to false: This indicates that the autoplay has stopped. It
                                                                             console.log(this);
                                                                           });
                                                                           both "this" points to object3
-                                                                          } .if the arrow function was a normal function,"this" would act just like it was independently created without a class and hence would be undefined-->
+                                                                          } .if the arrow function was a normal function,"this" would act just like it was independently created without a class and hence would be undefined.NB: arrow functions do not change the behavior of "this". "this" retains its value outside the arrow function-->
 
                                                                           <!-- function logThis(){
                                                                           console.log(this)
                                                                           }
                                                                           logThis()= undefined. the function is not in any object so "this" points to the global variable -->
-                                                                           <!-- with regards to the last eg.4 "this" has a special method ".call()" which can help change the value of "this" to any value. eg. logThis.call('hello') returns logThis() to the string 'hello' -->
+                                                                           <!-- with regards to the last eg.4 "this" has a special method ".call()" which can help change the value of "this" to any value. eg. logThis.call('hello') actually runs the function and does the same thing as logThis(),however, it returns 'hello' in the console -->
 
                                                                            <!-- REACT -->
                                                                             <!-- React is an open source library for building user interfaces.React is a javaScript library not a framework and its sole purpose is to help build user interfaces -->
@@ -729,7 +736,7 @@ Wrapping the <App /> component in <React.StrictMode> is optional but recommended
        <!-- components are also reusable.ie. they can be used with different properties to display different information.Component codes are usually placed in javascript files eg. App component is placed in the App.jsx file so basically, components are codes inside a js file -->
         <!-- React has two types of components i.e. Stateless functional Component and Stateful class component  -->
 
-         <!-- Functional Components:are a type of React component that are defined as JavaScript functions. They are used to render UI elements and can accept props (properties) as arguments. Unlike class components, stateless functional components do not manage their own state or lifecycle methods. Instead, they focus solely on rendering the UI based on the props they receive.Basically, functional components optionally receive inputs of properties(props) and return html that describes the UI. Now,you can use the useState and useEffect hooks to add state and lifecycle-like behavior to functional components -->
+         <!-- Functional Components:are a type of React component that are defined as JavaScript functions. They are used to render UI elements and can accept props (properties) as arguments. Unlike class components, stateless functional components do not manage their own state or lifecycle methods. Instead, they focus solely on rendering the UI based on the props they receive.Basically, functional components optionally receive inputs of properties(props) and return jsx/html that describes the UI. Now,you can use the useState and useEffect hooks to add state and lifecycle-like behavior to functional components -->
 
           <!-- 
          import React from 'react';
@@ -854,8 +861,8 @@ componentDidMount(): This method is called after the component is mounted to the
 componentWillUnmount(): This method is called just before the component is removed from the DOM. It can be used for cleanup tasks.
 Render Method: The render() method returns the JSX that defines the UI of the component.
  -->
-<!-- PROPS(PROPERTIES):It is the option of input that your component can accept.It also allows your component to be dynamic.To specify props for a component (in App) we specify them as attributes.-->
- <!-- Sometimes you might not know as to what content is being passed in a component (in App) but you'd want the component file to render such content. We can do that by specify the content within the closing and opening tag of the component (in app) and retrieving it in the props object made available in the component file using {props.children} -->
+<!-- PROPS(PROPERTIES):It is the object that contains the properties that has been passed from the parent component.It is the option of input that your component can accept.It also allows your component to be dynamic.To specify props for a component (in App) we specify them as attributes.-->
+ <!-- Sometimes you might not know as to what content is being passed in a component (in App) but you'd want the component file to render such content. We can do that by specifying the content within the closing and opening tag of the component (in app) and retrieving it in the props object made available in the component file using {props.children} -->
  <!-- 
 function App() {
   const [count, setCount] = useState(0)
@@ -886,17 +893,650 @@ return(
 
 export default Greet;
  -->
+<!-- for props we know are to be passed, we should pass them as attributes. props we don't know /dynamic html syntaxes should be passed in the component's opening and closing tag and in the component definition, render them using  {props.children} -->
  <!-- NB: a jsx wrapper should only contain on element.This means that when you return JSX from a component, all the elements must be enclosed within a single parent element. -->
-  <!-- Unlike functional components where we specify the props with the "props" parameter, we specify the it with "this.props" and it it reserved for class components  -->
+  <!-- Unlike functional components where we specify the props with the "props" parameter, we specify the it with "this.props" and it is reserved for class components  -->
    <!--  When we say that props are immutable, it means that once a component receives its props, it cannot modify them. ie modifying a props property in a component file will result in an error -->
+
+
+      <!-- BRO-CODE -->
+
+
+  <!-- NB:if you are sending a value=key as a prop and its not a string, it should be encased in an "{}". eg,
+        const App = () => {
+        <student age={15} name="Abigail"/>
+        } 
+        -->
+        <!-- with booleans its best to use a ternary operator when defining them in their respective component eg.
+        const student = (props) => {
+        <p>{props.isStudent ? 'Yes' : 'No'}</p>
+        } 
+        -->
+
+        <!-- PROP-TYPES -->
+        <!-- PropTypes: its a mechanism that ensures that the passed value is of the correct type eg. age = PropTypes.number.ie. we want to ensure if the data passed (to age) is of the correct type(a number).Using prop-types would not stop the application from running if the criteria is not met, it'll just issue a warning within the console. -->
+
+        <!-- DEFAULT PROPS -->
+         <!-- defaultProps: a default value for props in case they are not passed from the parent component -->
+
+         <!-- Conditional Rendering: it allows you to control what gets rendered in your application based on certain conditions (show,hide or change components) -->
+          <!-- eg.
+          const UserGreeting = (props) => {
+          return(props.isLogged ? <h2>Welcome back , {props.username}!</h2> : 
+                                    <h2>Please log in {props.username}</h2>)} 
+
+          -->
+
+           <!-- REACT HOOK -->
+         <!-- Its a special function that allows functional components to use React features without writing class components. (useState,useEffects,useContext,useReducer) -->
+
+         <!-- USE-STATE -->
+          <!-- a react hook thats allows the creation of state variables and functions to update them. -->
+           <!-- eg const [count,setCount] = useState(0). in this example , count is the state variable and setCount is the function to update it. setCount updates the count and saves it to the state variable "count". -->
+
+           <!-- OnCHANGE: onChange event handler is primarily with form elements eg. <input>,<textarea>,<select>. it triggers a function anytime the value of the input changes -->
+
+            <!-- NB: in applying internal css to an element in react, you'd have to enclose them in two objects. the first {} tells us its a jsx expression. the second {} is an object literal which expresses {property: value}.Note: properties uses CamelCase not dashes ie. backgroundColor not background-color. -->
+
+            <!-- UPDATER FUNCTION -->
+             <!-- a function passed as an argument to setState() usually  -->
+              <!-- inside say an increment function eg -->
+               <!-- 
+              const increment = () => {
+                setCount(count + 1)
+                 setCount(count + 1)
+                  setCount(count + 1);
+                  , the result will be 1 instead of 3. this is because, the setCount() function is asynchronous and it doesn't update the state immediately. it batches the updates and applies them at once. to fix this, we can use an updater function which takes the previous state as an argument(parameter) and returns the new state. eg
+                  setCount((prevCount) => prevCount + 1);
+                }
+               -->
+                <!-- with the updater function, we are taking the pending state to calculate the new state.we update the current state with the last pending state. when using updater function, react puts all the updater functions in a queue waiting to be completed one after the other -->
+                 <!-- its a good practice to use updater functions even when you are updating the state just once -->
+
+                 <!-- NB: When you see something like ...c, it means: Take all the values (or properties) inside c and "spread" them into a new array or object. -->
+                  <!-- 
+                 const c = { name: 'John', age: 30 };
+                      const newObj = { ...c, age: 31 };
+                      // Result: { name: 'John', age: 31 }
+
+                  -->
+                  <!-- also when you have a "{}" after an "=>" javascript assumes we want to write a multi line statement but in this case we are trying to create an object eg.  -->
+                   <!-- 
+                  setFormData(prev => ({
+                                      ...prev,
+                                      email: 'test@example.com',
+                                    }));
+-->
+
+
+
      
    <!--DIFFERENCE BETWEEN PROPS AND STATE  -->
-   <!-- Props get passed on to component whiles state exist in the component.Also, props are like function parameters while state behave like methods declared in a function body.again,props are immutable whiles states can be changed.We access props in function components as "props" and in class components as "this .props". We access state in functional components as useState-Hook and in class components as this.state-->
+   <!-- Props get passed on to component whiles state exist in the component.Also, props are like function parameters while state behave like variables declared in a function body.again,props are immutable whiles states can be changed.We access props in function components as "props" and in class components as "this .props". We access state in functional components as useState-Hook and in class components as this.state-->
     <!-- a state is an object that is privately maintained in a component.A state can influence what is rendered in a browser, and finally a state can be changed within the component -->
-                                                                           
-                                                                      
 
-                                                       
+     <!-- STATE -->
+      <!-- with regards to components, if you render a component in app.jsx and you want to make adjustment to where when we click a button, the text changes, you can't pass them as props in App.jsx as props are immutable.ie.(once you pass them in App.jsx, thy cant be changed in the component definition). its best to use state which can influence what is rendered in a browser,and also a state can be changed within the component -->
+       <!-- in using component state, the first step is to use a "this.state" and initialize it. "this.state" is used inside the class component. we define a constructor wih super() defined in it.Since our component "extends" from the React Component, super() must be stated so it realizes and copies the attributes of the constructor from the React Component .inside the constructor we initialize the "this.state". we link it similar to how we render props. in a curly bracket {} inside the render(). we create a button and set its onClick attribute to the method meant to change the initial text rendered. the method meant to change the text possess "this.setState()" which accepts a object describing the new state of the object which is to be enacted upon its call -->
+        <!-- the eg
+        import React,{Component} from "react";
+
+
+class Message extends Component {
+  constructor(){
+    super();
+    this.state = {
+      message: 'Welcome friend'
+    }
+  }
+
+  changeMessage(){
+    this.setState({
+      message: 'Thanks for subscribing'
+    })
+  }
+
+
+  render(){
+    return (
+      <div>
+        <h1>{this.state.message}</h1>
+        <button onClick={() => {this.changeMessage()}}>Subscribe</button>
+      </div>
+    )
+  }
+}
+
+export default Message; 
+        -->
+<!-- "this.state" can only be used in the constructor. any intention to change the state, setState must be used -->
+ <!-- in situations within your application where you want some block of code to run after your "this.state" has been changed,you can pass that code as a callback to the "setState" method. the "setSate" has two parameters.ie. the "state" object (describes the new "state") and second, the callback function(gets passed after state is set) which is passed in an arrow function   -->
+  <!-- 
+ incrementCount(){
+    this.setState({
+      count: this.state.count + 1
+    },() => {
+      console.log('Callback value',this.state.count);
+    })
+
+    console.log(this.state.count);    
+  }
+ here, the console.log outside the "setState" returns 0 first before any increment. the callback returns 1 first and then the increments -->
+ <!-- NB:If you need to execute some codes after the "state" has been changed,do not pass that after the setState method but rather pass the code within the callBack function which is placed as a second parameter to the setState method -->
+  <!-- if you have to update the state based on the previous state,you'd have to pass it as a function(props) for the argument instead of the regular object -->
+
+  <!-- HOW TO LINK TAILWIND TO REACT -->
+   <!-- You first visit the tailwind documentation and copy the link to reference tailwind in your folder's terminal -->
+    <!-- copy link to reference tailwind in config.vite *2 -->
+     <!-- copy link to reference tailwind in index.css -->
+      <!-- run npm run dev in vs code terminal of the folder -->
+
+      <!-- HOW STATES AND SET-STATE WORKS eg. WITH FORM -->
+       <!-- with respect to input, its controlled in react ie. the input in react are connected to a state. the "value" proposition of the input is taken as the state of the input   -->
+        <!-- in situations, we set the state of the value to the input to an empty string. however, in our quest to change it to whatever would be typed into the input, we'd have to set the "ONchange" attribute of the input into a function say "handleNameChange()". the function "handleNameChange" should have an "event" parameter,reaches into the "event" object to get another "target" object, and finally reach into that object to get "value" property which gets the keys input into the input. We wrap this in the setName() which is meant to alter the state -->
+
+        <!-- NB:The .trim() method returns a new string with whitespace removed from the beginning and end of the original string. It does not modify the original string, as strings in JavaScript are immutable.     -->
+         <!-- eg
+         let str = "   Hello, World!   ";
+          let trimmedStr = str.trim();
+          &nbsp;
+          &nbsp;
+
+          console.log(trimmedStr); // Output: "Hello, World!"
+          console.log(str);        // Output: "   Hello, World!   " (original string remains unchanged) 
+         -->
+          <!--  Users may inadvertently add extra spaces before or after their input or not enter any input whatsoever. For example, a user might enter their name as " John Doe ". If this input is not cleaned, it can lead to inconsistencies in how data is stored and displayed. if the user doesn't enter any input, the state will be an empty string which can also lead to inconsistencies. to avoid this , we use the trim() method to remove any leading or trailing whitespace from the input. we also the "if" condition to check if the input is not empty before setting the state. this is to avoid the state being an empty string.  -->
+
+          <!-- DESTRUCTURING -->
+           <!-- Destructuring allows us to extract values from arrays and objects and assign them to variables in a convenient way. We use "[]" to perform array destructuring and "{}" to perform object destructuring.  -->
+             <!--It can be used to swap the values of two variables. Example 1  -->
+             <!-- 
+             let a = 1;
+              let b = 2;
+
+              [a,b] = [b,a]
+              console.log(a);
+              console.log(b);
+              -->
+
+              <!-- Note, in this regard,the first array/object does the destructuring whiles the second array/objects does the assignment and saves the result to a variable. -->
+
+              <!-- it can be used to swap two elements in an array -->
+               <!-- 
+              const colors = ["red", "green", "blue", "yellow", "purple", "orange"];
+
+              [colors[0],colors[5]] = [colors[5],colors[0]]
+
+              console.log(colors)
+               -->
+
+
+              <!-- It allows us to assign array elements to variables -->
+               <!-- const colors = ["red", "green", "blue", "yellow", "purple", "orange"];
+
+              const [firstColor,secondColor,thirdColor,...extraColors] = colors;
+
+              console.log(firstColor); returns "red"
+              console.log(thirdColor); returns "blue"
+              console.log(extraColors)  returns ["yellow", "purple", "orange"] -->
+
+
+              <!-- it allows us to extract values from objects -->
+               <!-- 
+              const person1 = {
+                    firstName:'Mark',
+                    lastName:'Anthony',
+                    age: 30,
+                  }
+
+                  const {firstName, lastName, age, job = "unemployed"} = person1;
+                  console.log(firstName);
+                  console.log(lastName);
+                  console.log(age);
+                  console.log(job);
+               -->
+                  <!-- NB: we can set a default property when destructuring -->
+
+                  <!-- it allows us to destructure in function parameters -->
+                   <!-- 
+                 function displayObject ({firstName,lastName,age,job}){
+                    console.log(`name: ${firstName} ${lastName}`);
+                    console.log(`age: ${age}`)
+                    console.log(`job: ${job}`)
+                  }
+
+
+                  const person1 = {
+                    firstName:'Mark',
+                    lastName:'Anthony',
+                    age: 30,
+                    job: 'Software Engineer',
+                  }
+
+                  displayObject(person1);
+                   -->
+
+                   <!-- USE-EFFECT() -->
+
+                    <!-- RE-RENDERING: In React, when we say that a component "re-renders," we are referring to the process where the component is updated and its output is recalculated and re-rendered in the DOM.When a component's state is altered either using useState hook(functional components) or setState method(class components)or If a component receives new props from its parent component, React schedules a re-render of that component. This is because the UI needs to reflect the new state. -->
+                     <!-- MOUNTED: when a component is mounted, it is executed, and the resulting JSX is converted into actual DOM elements, which is then rendered on the page. This is a fundamental part of how React works, allowing it to create dynamic and interactive user interface -->
+
+                     <!-- NB:State updates in React are asynchronous so if you need to perform an action based on the updated state, you can use the useEffect hook or pass a function to the state updater that takes the previous state as an argument. -->
+
+                     <!-- UseEffects(): React Hook that tells React to do some code when 1.This component re-renders. 2.This component mounts 3. the state of a value passed in the component changes  -->
+                      <!-- 1.useEffects(() => {})  Runs after every re-render -->
+                       <!-- 2.useEffects(() => {}, [])  Runs only once after the component mounts -->
+                        <!-- 3.useEffects(() => {}, [value])  Runs only when the value changes -->
+
+                        <!-- RETURN IN USE-EFFECT -->
+                         <!-- In React, the return statement in the useEffect hook is used to define a cleanup function that runs when the component unmounts or before the effect runs again due to dependency changes. -->
+                          <!-- Its best practice to use a cleanup function remove addEventlisteners or other events before the component unmounts or re-renders(if no dependency is provided) to prevent unexpected behavior. -->
+                          <!-- On Component Unmount: The cleanup function is called when the component is removed from the DOM. This is crucial for cleaning up resources like event listeners or subscriptions.
+                          Before Re-running the Effect: If the dependencies of the useEffect change, the cleanup function from the previous render is executed before the new effect runs. This ensures that the previous effect is properly cleaned up before applying the new one. -->
+
+
+                    <!-- NB:  In JavaScript, when using curly braces {} in an arrow function, you need to explicitly return the value. If you want to return a JSX element, you can either use parentheses () or add a return statement. -->
+
+                    <!-- WITH REGARDS TO THE C-R IN CRUDE -->
+                     <!-- Component Responsibility: Each component should have a clear responsibility. The User List component is responsible for rendering a list of users, while the User Item component is responsible for rendering the details of a single user. By passing the user data as props, you maintain a clear separation of concerns. -->
+
+                     <!-- USE-CONTEXT() -->
+                      <!-- useContext() = React hooks that allows you to share values between multiple levels of components without passing props down through each level -->
+                       <!-- PROVIDER COMPONENT -->
+                        <!-- 1. import {createContext} from react -->
+                         <!-- 2.export const myContext = createContext() -->
+                          <!-- 
+                         <myContext.Provider value={value}>
+                              <Child/>
+                          <myContext.Provider/>
+                          -->
+
+                          <!-- CONSUMER COMPONENT -->
+                           <!-- 1.import React {useContext} from 'react' -->
+                            <!-- import {myContext} from './ComponentA' -->
+                             <!-- const value = useContext(myContext) -->
+
+                             <!-- NB: any child component of the provider can use the context value -->
+
+                             <!-- USE-REF() -->
+                              <!-- Use-State() = Re-renders the component when the state value changes -->
+                               <!-- Use-ref() = "use-reference" does not cause re-renders when its value changes.UseRef() returns an object with a single property,"current" and whatever gets put inside the useRef() becomes the initial value of the "current" property. the property can hold, an array, an object,a value, an html element and it doesn't re-render when the value of the "current" property changes  -->
+                                <!-- where use-ref() is most useful
+                                 1.accessing/Interacting with DOM elements
+                                 2. Handling Focus,Animations and transition 
+                                 3. Managing Timers and intervals-->
+                                 <!-- UseRef() returns an object with a single property,"current" and whatever gets put inside the useRef() becomes the value of the "current" property -->
+
+                                 <!-- Updating a value stored in a ref does not trigger a re-render of the component. This makes useRef suitable for storing values that you want to keep around but do not need to display in the UI. -->
+
+                                 <!-- NB:
+                                 Use useState() when you need to manage state that affects the rendering of your component.
+                                Use useRef when you need to access a DOM element directly or store a mutable value that does not require re-rendering when it changes.
+                                 -->
+
+                                 <!-- NB: The ref in an <input> (or any React element) is a way to directly reference that DOM node so you can interact with it imperatively—without relying solely on React's state or props. this can allow manipulation of the input's properties. -->
+
+                                 <!-- STEPS TO APPLY SVG IN REACT -->
+                                   <!-- npm install vite-plugin-svgr --save-dev -->
+                                  
+                                     <!-- 
+                                    // vite.config.js
+                                    import { defineConfig } from 'vite';
+                                    import react from '@vitejs/plugin-react-swc';
+                                    import svgr from 'vite-plugin-svgr';
+                                    export default defineConfig({
+                                      plugins: [react(), svgr()],
+                                    });
+
+                                     -->
+                                    <!-- import { ReactComponent as MyIcon } from './assets/my-icon.svg'; -->
+
+
+                                    <!-- API's -->
+                                     <!-- Asynchronous calls -  functions/commands that run on the background and hence does not interrupts with the main application flow.
+
+                                     JSON - A structured text of key-value pairs used in network communication.
+
+                                     Promises - represents a value that is not available yet, but will be resolved at some point in the future.
+
+                                      Callbacks functions - are functions that will be executed when a response is received from the server.
+                                        -->
+
+
+                                        <!-- CARROUSEL -->
+                                         <!-- 
+                                              // src/components/WiseTvCarousel.js
+import React from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Link } from 'react-router-dom';
+
+// Import local images
+import studioImage from '../assets/studio.jpg';
+import filmSetImage from '../assets/filmset.jpg';
+import cinemaImage from '../assets/cinema.jpg';
+
+// Debug: Log the image imports to verify they are loading
+console.log('Studio Image:', studioImage);
+console.log('Film Set Image:', filmSetImage);
+console.log('Cinema Image:', cinemaImage);
+
+// Define carousel items with local images
+const carouselItems = [
+  {
+    src: studioImage,
+    alt: 'TV Studio',
+    caption: 'Behind the Scenes: TV Studio',
+  },
+  {
+    src: filmSetImage,
+    alt: 'Film Set',
+    caption: 'Action on the Film Set',
+  },
+  {
+    src: cinemaImage,
+    alt: 'Cinema',
+    caption: 'Cinema Experience',
+  },
+];
+
+const WiseTvCarousel = () => {
+  return (
+    <section className="relative h-screen">
+      <Carousel
+        autoPlay={true}
+        infiniteLoop={true}
+        showThumbs={false}
+        showStatus={false}
+        showArrows={true}
+        interval={3000}
+        emulateTouch={true}
+        swipeable={true}
+        dynamicHeight={false}
+        className="h-full w-full"
+      >
+        {carouselItems.map((item, index) => (
+          <div key={index} className="relative w-full h-screen">
+            <img
+              src={item.src}
+              alt={item.alt}
+              className="w-full h-full object-cover"
+              style={{ display: 'block' }}
+              onError={(e) => {
+                console.log(Failed to load image: ${item.alt});
+                e.target.src = 'https://via.placeholder.com/1200x600/CCCCCC/FFFFFF?text=Image+Not+Found';
+              }}
+            />
+            <p className="legend bg-red-600 text-white text-sm font-semibold px-3 py-1 rounded">
+              {item.caption}
+            </p>
+          </div>
+        ))}
+      </Carousel>
+
+      {/* Overlay with Headline, Tagline, and CTA */}
+      <div className="absolute inset-0 flex items-center justify-center bg-opacity-50">
+        <div className="text-center text-white px-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+            Welcome to WiseTV
+          </h1>
+          <p className="text-lg md:text-2xl mb-6 drop-shadow-lg">
+            Empowering the Next Generation with Inspiring Stories
+          </p>
+          <Link
+            to="/watch"
+            className="inline-block bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-500 transition-colors shadow-lg"
+          >
+            Watch Now
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default WiseTvCarousel;
+                                         -->
 
 
 
+                                        <!-- BACKEND -->
+                                         <!-- new XMLHttpRequest(); - this creates a new XMLHttpRequest object, which is used to interact with servers -->
+                                         <!-- It can be used to send and receive data asynchronously -->
+                                         <!-- Commonly used for making API calls in web applications -->
+                                          <!-- the lists of all the url paths that are supported to interact with the backend are called backend API's -->     <!-- Example of a backend API endpoint -->
+                                           <!-- NB:using the url of a browser extension is the same as sending a 'GET' request to the backend of the said site -->
+                                            <!--  a callback function is a function that is passed as an argument to another function and is executed after some kind of event occurs or a task is completed eg. setInterval() -->
+                                              <!-- PROMISES -->
+                                               <!-- Promises are a way to handle asynchronous operations in JavaScript -->
+                                               <!-- They represent a value that may be available now, or in the future, or never -->
+                                               <!-- promises lets us WAIT for some code to finish before we can continue with the rest of the code -->
+                                                <!-- promise is a built-in class and when created needs to host a function which runs immediately, eg. new Promise((resolve) => {}) -->
+                                                 <!-- resolve is a function that lets us control when to go to the next step in the promise chain -->
+                                                  <!-- promises help keep our code flat and avoids nesting of callbacks -->
+                                                   <!-- when we give a resolve function a value , it will be passed to the next .then(value) in the chain. this helps in sharing data between two steps in the promise chain -->
+                                                    <!-- promise.all allows us to run multiple promises at the same time to resolve before proceeding -->
+                                                    <!-- Example: -->
+                                                    <!-- Promise.all([promise1, promise2]).then((results) => { ... }); -->
+
+                                                    <!-- FETCH -->
+                                                     <!-- fetch is a better way to make http requests in modern browsers -->
+                                                      <!-- fetch makes an http request and returns a promise -->
+                                                      <!-- fetch() is a built -in function that returns a promise from an HTTP request -->
+                                                      <!-- Example: -->
+                                                      <!-- fetch('https://api.example.com/data') -->
+                                                      <!--   .then((response) => response.json()) -->
+                                                      <!--   .then((data) => { ... }) -->
+                                                      <!--   .catch((error) => { ... }); -->
+                                                         <!-- fetch saves the response of its request in the parameter of the first .then()ie. then(response) -->
+                                                          <!-- to access the data attached to the response, we use the .json() method ie. response.json(). this gives us the json data attached to the response -->
+                                                           <!-- NB:response.json() is actually asynchronous and returns a promise -->
+                                                            <!-- when we return a promise, we are basically waiting for the asynchronous operation to complete before proceeding which means we can use .then() to handle the result of the promise -->
+                                                             <!-- once response.json() is finished, its gonna return that data which gets saved in the parameter of the next .then() ie. then(data) -->
+
+                                                             <!-- ASYNC AND AWAIT -->
+                                                              <!-- async- it makes a function return a promise -->
+                                                               <!-- await- it makes a function wait for a promise to finish before moving to the next line -->
+                                                                <!-- await lets us write asynchronous code that looks like normal code -->
+                                                                <!-- Example: -->
+                                                                <!-- async function fetchData() { -->
+                                                                <!--   const response = await fetch('https://api.example.com/data'); -->
+                                                                <!--   const data = await response.json(); -->
+                                                                <!--   console.log(data); -->
+                                                                <!-- } -->
+                                                                <!-- with 'await' theres no need for .then() -->
+                                                                 <!-- We can only use 'await' inside 'async' functions -->
+                                                                  <!-- async-await is only relevant to promises and has nothing to do with callbacks -->
+                                                                   <!-- the closest to await has to be async -->
+                                                                    <!-- if a promise 'resolves' in a value, then the value is passed to the next .then() in the chain, however with await, it gets returned which acn be saved in a variable -->
+                                                                     <!-- MY QUESTION -->
+                                                                      <!-- when a function is a assigned async, does it mean when the function is called , the async insures that the function's promise is completed before moving to the next line? -->
+                                                                       <!-- THE ANSWER -->
+                                                                        <!-- JavaScript will pause execution inside that async function until the fetch promise is resolved, but it does NOT block the rest of the program.-->
+
+                                                                    <!-- REQUEST -->
+                                                                     <!-- there are 4 types of requests -->
+                                                                      <!-- GET- get something from the backend
+                                                                           POST- create something
+                                                                           PUT- update something
+                                                                           DELETE- delete something
+                                                                        -->
+                                                                    <!-- to send data in a request to the backend we use POST  -->
+                                                                     <!-- "headers" gives the backend more information about the request and this is needed when we are sending data to the backend -->
+                                                                     <!-- GET doesn't allow us get send data to the backend -->
+
+                                                                     <!-- windows.location is a built in javascript object that lets us control the current URL of the browser window. windows.location.href is the current URL of the window. -->
+
+                                                                     <!-- URL PARAMETERS -->
+                                                                      <!-- url parameters let you save data in the URL, which can be useful for things like filtering or searching. -->
+
+
+                <!-- FIREBASE -->
+                 <!-- {InitializeApp} is a function provided by firebase that helps you initialize your firebase application with the project's configuration (API key, project ID, etc) -->
+                  <!-- Without initializing Firebase, you can’t use services like Auth, Firestore, etc. -->
+                   <!-- Once you call initializeApp(firebaseConfig), your Firebase services are ready to be used in your app. -->
+
+                   <!-- getFireStore() -->
+                    <!-- getFireStore() is a function from Firebase that initializes Firestore, which is Firebase's cloud-based NoSQL database. -->
+                     <!-- It returns a REFERENCE TO YOUR FIRESTORE DATABASE so you can read, write, or listen to data. -->
+                      <!-- In relation to const db = getFirestore(app), app tells getFirestore() which Firebase project to use (based on your firebaseConfig). -->
+
+                  <!-- DOC() -->
+                 <!-- doc() in firebase lets us create an instance of a document/ get a reference to the document in the collection.ie. a particular document(row) of a collection(table) in the database -->
+                  <!-- NB: the reason sometimes in the onclick attribute, we call the function to execute straightforward like onclick={create} and other times, put it in a function like this onclick={() => {editFunction(id)}} is because of the arguments to be passed to the function eg.id, -->
+
+                  <!-- NB: const auth = getAuth(app) -->
+                   <!-- The auth instance represents the authentication system itself — not the current user, but the entire Firebase Auth service for your app.
+
+                    It’s like the controller that:
+
+                    Handles sign-in/sign-out
+
+                    Stores the current user
+
+                    Manages sessions
+
+                    Gives access to useful methods like signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, and onAuthStateChanged -->
+                    <!-- auth.currentUser holds the current status of the auth system.ie. whether this user is already signed in or not however, the problem here is that, When the app loads, Firebase needs a second to figure out if a user is already signed in (like after a page refresh). or this particular user is already signed in, just that the page refreshed and such could cause an error . this is where onAuthStateChanged comes in -->
+
+                  <!-- NB:onAuthStateChanged is a Firebase function that listens for changes in the user's authentication state — in real time. -->
+                   <!-- onAuthStateChanged(auth, (CurrentUser) => {
+                    if (CurrentUser) {
+                      console.log("User is signed in:", currentUser.email);
+                    } else {
+                      console.log("No user is signed in");
+                    }
+                  }); -->
+                  <!-- auth: your Firebase Auth instance. -->
+                   <!-- A callback function that runs every time the auth state changes. -->
+                    <!-- What constitutes an auth state change? -->
+                     <!-- When:
+
+                      A user logs in
+
+                      A user logs out
+
+                      The app refreshes and Firebase automatically signs the user back in
+
+                      The user’s session expires
+
+                      → Firebase calls your callback with the latest user info (or null if signed out). -->
+                      <!-- currentUser is:
+
+                        An object (with details like email, uid, etc.) if the user is logged in and
+
+                        null if no one is logged in -->
+                        
+
+
+                        <!--  Here's what happens during a page refresh:
+                        Page reloads ➝ all JS is re-run from scratch.
+
+                        Firebase needs to check local storage (or cookies/session) to see:
+
+                        "Is there a user already signed in from a previous session?"
+
+                        This check takes a little time, and during that time:
+
+                        auth.currentUser is usually null ⚠️ (even if a user is signed in!)
+
+                        So, if you immediately access auth.currentUser, you'll likely get null. -->
+                        <!-- onAuthStateChanged waits behind the scenes for Firebase to finish that session check, then gives you the actual result: -->
+
+                        <!-- NB: If the signup/logIn is successful, Firebase returns a UserCredential object. -->
+
+                        
+
+                        <!-- WITH RESPECT TO THE SIGN IN AND SIGN UP PROCESS, THE FOLLOWING IS IMPORTANT TO KNOW: -->
+                         <!-- try { ... } catch (error) { ... }
+                          This is JavaScript’s error handling.
+
+                          Code inside the try block is attempted.
+
+                          If anything fails (like invalid email, weak password, or network issues), it jumps to the catch block so your app doesn’t crash.
+
+                          error.message gives a human-readable description of what went wrong. -->
+
+                          <!-- BIG DISCOVERY -->
+                           <!-- try {
+                            const userCredentials = await createUserWithEmailAndPassword(
+                              auth,
+                              registeredEmail,
+                              registeredPassword
+                            );
+                            console.log(userCredentials);
+                          } catch (error) {
+                            console.log(error.message);
+                          } -->
+                            <!-- IF this is successful, firebase returns 
+                            {
+                              user: {
+                                uid: "abc123XYZ",
+                                email: "example@email.com",
+                                emailVerified: false,
+                                displayName: null,
+                                photoURL: null,
+                                isAnonymous: false,
+                                metadata: {
+                                  creationTime: "Fri, 08 Aug 2025 12:00:00 GMT",
+                                  lastSignInTime: "Fri, 08 Aug 2025 12:00:00 GMT"
+                                },
+                                providerData: [
+                                  {
+                                    providerId: "password",
+                                    uid: "example@email.com",
+                                    displayName: null,
+                                    email: "example@email.com",
+                                    phoneNumber: null,
+                                    photoURL: null
+                                  }
+                                ]
+                              },
+                              providerId: null,
+                              operationType: "signIn"
+                            }
+                             which would be now saved in the userCredentials variable.
+                             console.log(userCredentials.user) would print out the user’s data.
+                            
+                            -->
+
+
+                            <!-- NODE JS -->
+                             <!-- When you require a modal, you request v8 to execute the code in that modal's context. -->
+                              <!-- You can use module.exports to expose functions or variables from a module so they can be used in other files. -->
+                               <!-- NB: the value of the module.exports object is equal to what gets exported from the module when the module is required in another file.ie. require(./add.js) === (module.exports = addFn) and as such can be saved in a variable ie. const add = require(./add.js) -->
+                                <!-- By wrapping a module code in an iife with 5 parameters, node.js provides a few global looking variable that are specific to the module's context. -->
+                                 <!--NB: Before a module is executed, Node.js wraps it in a function with 5 parameters: require, exports, module, __filename, and __dirname. They are available for use in every module -->
+                                 <!-- In Node.js, require caches modules. That means if you import the same file multiple times, Node doesn’t create a new object each time — it gives you the same instance from memory.So in instances where you import a module, and you modify it, those changes will be reflected everywhere the module is imported. -->
+
+                                 <!-- // math.js
+                                  function add(a, b) {
+                                    return a + b;
+                                  }
+                                  module.exports = add;
+
+                                  // app.js
+                                  const add = require("./math");
+                                  console.log(add(2, 3)); // 5 -->
+                                  <!-- So require("./math") is the function. -->
+
+                                  <!--
+
+                                 // math.js
+                                  function add(a, b) {
+                                    return a + b;
+                                  }
+                                  module.exports = { add };
+
+                                  // app.js
+                                  const math = require("./math");
+                                  console.log(math.add(2, 3)); // 5-->
+                                  <!-- So require("./math") is the object containing the add function. -->
+
+                                  <!-- NB: Use the direct export (module.exports = fn) when your module exports just one thing.Use the object export (module.exports = { fn1, fn2 }) when your module has multiple functions or values. -->
+
+                                  <!-- exports is just a reference to module.exports hence if you assign to exports, you are not changing module.exports however, node.js only returns module.exports when you require a module. -->
+
+
+                                  <!-- ESM -->
+                                   <!-- The file extensions in ESM is mjs and not js  -->

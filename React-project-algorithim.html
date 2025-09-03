@@ -1,0 +1,109 @@
+<!-- STOP-WATCH ALGORITHM -->
+
+<!-- create 4 states using both useState and useRef -->
+ <!-- const [isRunning,setIsRunning] = useState(false)- to determine the stopwatch is not running
+
+  const [elapsedTime, setIsElapsedTime] = useState(0)-to determine how much time has elapsed since start of stopwatch journey. This is visible so when it causes, it should be updated to be seen accordingly hence the use of useState.
+
+  const intervalIdRef = useRef(null);= a useRef() state to generate the setIntervalId to stop the it when the component unmounts.
+
+  const startTimeRef = useRef(0)= this is a useRef() state to determine when the stopwatch started running. its initial value here is 0,depicting the first starting point of the stopwatch however, its state is mutable. We use useRef() here instead of useState to not cause a re-render when the value changes -->
+
+  <!-- since elapsedTime starts after the stopwatch journey begins, it is what would be destructured into hours,minutes ,seconds and milliseconds. We'd be getting the elapsedTime into a useEffect() so whenever the the stopwatch starts running, we can get the values for the elapsedTime for destructuring   -->
+
+
+  <!-- const startStopWatch = () => {
+    setIsRunning(true)
+    startTimeRef.current = Date.now() - elapsedTime;
+  }-->
+
+<!-- EXPLANATION of the startTimeRef.current = Date.now() - elapsedTime -->
+<!-- Date.now() gets the current timestamp in milliseconds.
+elapsedTime is how much time has already passed (usually stored when the timer was paused).
+So Date.now() - elapsedTime shifts the "start time" backwards, as if the timer had never been paused.
+startTimeRef.current stores that adjusted time using a useRef. -->
+
+<!-- WHY'S THIS USEFUL -->
+ <!-- When resuming a paused timer, you don’t want to reset it completely — you want to pick up where it left off. By subtracting elapsedTime, you're pretending the timer started earlier, so the next calculation of elapsed time is correct. -->
+
+ <!-- PERSONAL QUESTION OF WHY USE-REF AND NOT USE-STATE -->
+
+  <!-- So why not useState for startTime?
+Because:startTime doesn’t need to be shown on the screen.
+Updating it shouldn’t cause the whole component to re-render (which useState would do).
+useRef is ideal for keeping persistent, mutable values that don’t affect the UI.
+
+In short:
+✅ useRef is used here to improve performance and avoid unnecessary updates. -->
+
+
+
+<!-- ELAPSED TIME -->
+ <!--  elapsedTime
+elapsedTime is typically a state variable created using the useState hook. It holds the total time that has passed since the stopwatch was started.
+Purpose:
+
+The purpose of elapsedTime is to provide a way to display the total time that has elapsed while the stopwatch is running. This value is updated continuously as the timer runs. -->
+<!-- During the running state of the stopwatch, elapsedTime is updated by calculating the difference between the current time (Date.now()) and startTimeRef.current. This calculation gives the total elapsed time in milliseconds. -->
+ <!-- elapsedTime is updated at regular intervals (e.g., every 10 milliseconds) using a timer (e.g., setInterval). When the stopwatch is stopped, the last calculated value of elapsedTime represents the total time that has passed since it was started. -->
+
+ <!-- START-TIME-REF -->
+  <!-- startTimeRef
+startTimeRef is typically created using the useRef hook in React. It is used to store a mutable reference to the timestamp when the stopwatch was started.
+Purpose:
+
+The primary purpose of startTimeRef is to keep track of the exact moment the stopwatch begins counting. This allows you to calculate the elapsed time accurately.
+Usage:
+
+When the stopwatch is started, startTimeRef.current is set to the current timestamp using Date.now() - elapsedTime(initial value is 0). This captures the time at which the stopwatch starts. -->
+<!-- startTimeRef.current does not change unless explicitly set again. If the stopwatch is restarted, you would update startTimeRef.current to the new start time - elapsedTime to get the exact point it was stopped. -->
+
+<!-- EXAMPLE WORK FLOW -->
+ <!-- Starting the Stopwatch:
+
+When the user starts the stopwatch, startTimeRef.current is set to the current timestamp - elapsedTime (initial value is 0).
+The stopwatch enters a running state (isRunning is set to true).
+Updating Elapsed Time:
+
+A timer (using setInterval) runs every few milliseconds (e.g., every 10 ms).
+Inside the timer callback, elapsedTime is updated by calculating the difference between the current time and startTimeRef.current.
+Stopping the Stopwatch:
+
+When the user stops the stopwatch, the running state is set to false.
+The last value of elapsedTime represents the total time that has elapsed since the stopwatch was started. -->
+
+
+
+<!-- CODE FOR THE CONVERSION OF ELAPSED TIME INTO HOURS,MINUTES,SECONDS AND MILLISECONDS -->
+ <!-- 
+function convertElapsedTime(elapsedTime) {
+  // Calculate hours
+  const hours = Math.floor(elapsedTime / (1000 * 60 * 60));
+  
+  // Calculate minutes
+  const minutes = Math.floor((elapsedTime / (1000 * 60 ) % 60);
+  
+  // Calculate seconds
+  const seconds = Math.floor((elapsedTime / 1000) % 60);
+  
+  // Calculate milliseconds
+  const milliseconds = elapsedTime % 1000;
+
+  // Return formatted time
+  return {
+    hours,
+    minutes,
+    seconds,
+    milliseconds
+  };
+}
+
+// Example usage
+const elapsedTime = 123456789; // Example elapsed time in milliseconds
+const formattedTime = convertElapsedTime(elapsedTime);
+console.log(formattedTime); // Output: { hours: 34, minutes: 17, seconds: 36, milliseconds: 789 }
+
+ -->
+<!-- 
+The modulus operator (%) is used to get the remaining milliseconds after extracting hours/seconds/minutes.  
+-->
